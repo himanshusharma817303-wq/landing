@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EarnSimply - Complete Tasks, Get Paid</title>
 
-  <!-- Google Fonts -->
+  <!-- ✅ Google Fonts: Karla -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,105 +16,87 @@
   <script>
     tailwind.config = {
       theme: {
-        fontFamily: { sans: ['Inter', 'sans-serif'] },
+        fontFamily: { sans: ['Karla', 'system-ui', 'sans-serif'] },
         extend: {
           colors: {
-            dark: { 900: '#0f172a', 800: '#1e293b', card: '#111827' },
-            brand: { 500: '#3b82f6', 600: '#2563eb', accent: '#6366f1' }
+            ink: '#0B1220',
+            sub: '#64748b',
+            line: '#e5e7eb',
+            soft: '#f8fafc',
+            brand: { 500: '#2E5BFF', 600: '#2148E8' },
+            dark: { 900: '#0f172a', 800: '#111827' }
+          },
+          borderRadius: {
+            soft: '18px',
+            card: '24px',
+            pill: '9999px'
           },
           boxShadow: {
-            'glow': '0 0 50px -12px rgba(59, 130, 246, 0.25)',
-            'card': '0 10px 40px -10px rgba(0, 0, 0, 0.08)',
-          },
-          borderRadius: { '4xl': '2rem' }
+            card: '0 10px 30px rgba(15, 23, 42, 0.08)',
+            card2: '0 6px 18px rgba(15, 23, 42, 0.10)'
+          }
         }
       }
     }
   </script>
 
   <style>
-    body { background-color: #ffffff; color: #0f172a; -webkit-font-smoothing: antialiased; }
-    .text-gradient {
-      background: linear-gradient(to right, #3b82f6, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    body { background:#f8fafc; color:#0B1220; -webkit-font-smoothing:antialiased; }
+    .bg-hero {
+      background:
+        radial-gradient(900px 400px at 50% -10%, rgba(46,91,255,.22), transparent 60%),
+        linear-gradient(180deg, #0B1220 0%, #0f172a 60%, #111827 100%);
     }
-    .bg-gradient-dark { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); }
   </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden font-sans">
 
-  <!-- NAVIGATION -->
-  <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-line">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-dark-900 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-lg">E</span>
+          <div class="w-9 h-9 rounded-xl bg-ink flex items-center justify-center shadow">
+            <span class="text-white font-extrabold text-lg">E</span>
           </div>
-          <span class="font-bold text-xl tracking-tight text-gray-900">EarnSimply</span>
+          <span class="font-extrabold text-xl tracking-tight text-ink">EarnSimply</span>
         </div>
 
-        <!-- CTA -->
         <a href="#download"
-          class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 bg-dark-900 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+          class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition">
           Download App
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-dark overflow-hidden">
-    <!-- Decorative Glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-600/20 rounded-full blur-[120px] -z-10"></div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-8">
-        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-        <span class="text-sm font-medium text-gray-300 tracking-wide">Tasks • Payments • Support</span>
+  <!-- HERO -->
+  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-white/10 border border-white/10 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-sm font-bold text-white/80 tracking-wide">Tasks • Payments • Support</span>
       </div>
 
-      <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
         Complete tasks. <br class="hidden md:block" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Get paid.</span>
+        <span class="text-white/90">Get paid.</span>
       </h1>
 
-      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+      <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
         Mark your task done. Payments are tracked with updates — and support stays available until you’re paid.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#download"
-          class="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-brand-600 rounded-full hover:bg-brand-500 transition-all shadow-lg shadow-brand-500/25 transform hover:-translate-y-0.5">
+          class="w-full sm:w-auto px-8 py-4 text-base font-extrabold text-white bg-brand-500 rounded-pill hover:bg-brand-600 transition shadow-[0_12px_30px_rgba(46,91,255,.25)]">
           Download App
         </a>
         <a href="#how-it-works"
-          class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-300 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full hover:bg-white/10 transition-all">
+          class="w-full sm:w-auto px-8 py-4 text-base font-extrabold text-white/90 bg-white/10 border border-white/15 rounded-pill hover:bg-white/15 transition">
           How it Works
         </a>
-      </div>
-
-      <!-- Abstract UI Visual -->
-      <div class="mt-20 mx-auto max-w-sm md:max-w-md relative">
-        <div class="bg-gray-800 border-4 border-gray-700 rounded-[3rem] p-3 shadow-2xl relative z-10">
-          <div class="bg-dark-900 rounded-[2.5rem] overflow-hidden aspect-[9/19] relative">
-            <div class="absolute inset-0 p-6 flex flex-col">
-              <div class="h-12 w-full bg-white/10 rounded-2xl mb-6"></div>
-              <div class="space-y-4 flex-1">
-                <div class="h-32 w-full bg-gradient-to-br from-brand-600 to-indigo-600 rounded-3xl shadow-lg"></div>
-                <div class="h-24 w-full bg-white/5 rounded-3xl"></div>
-                <div class="h-24 w-full bg-white/5 rounded-3xl"></div>
-              </div>
-              <div class="mt-4 h-14 w-full bg-white rounded-full flex items-center justify-center">
-                <div class="h-6 w-24 bg-black rounded-full opacity-20"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="absolute top-10 right-10 w-32 h-32 bg-brand-500/30 rounded-full blur-2xl"></div>
       </div>
     </div>
   </section>
@@ -123,193 +105,261 @@
   <section id="how-it-works" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm mb-3">Simple Flow</h2>
-        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How it works</h3>
-        <p class="text-gray-500 text-lg">Clear steps. Premium experience.</p>
+        <h2 class="text-brand-500 font-extrabold tracking-wide uppercase text-sm mb-3">Simple Flow</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">How it works</h3>
+        <p class="text-sub text-lg font-medium">Clear steps. Premium experience.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Step 1 -->
-        <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-card hover:shadow-xl transition-all duration-300 relative">
-          <div class="absolute -top-4 left-8 bg-dark-900 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-md">1</div>
-          <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-brand-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-3">Choose a Task</h4>
-          <p class="text-gray-500 leading-relaxed">Pick from available tasks inside the app.</p>
+        <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
+          <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">1</div>
+          <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">✓</div>
+          <h4 class="text-xl font-extrabold text-ink mb-2">Choose a Task</h4>
+          <p class="text-sub font-medium leading-relaxed">Pick from available tasks inside the app.</p>
         </div>
 
-        <!-- Step 2 -->
-        <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-card hover:shadow-xl transition-all duration-300 relative">
-          <div class="absolute -top-4 left-8 bg-dark-900 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-md">2</div>
-          <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 text-indigo-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-3">Complete & Mark Done</h4>
-          <p class="text-gray-500 leading-relaxed">Finish the steps and mark your task as completed.</p>
+        <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
+          <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">2</div>
+          <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">▶</div>
+          <h4 class="text-xl font-extrabold text-ink mb-2">Complete & Mark Done</h4>
+          <p class="text-sub font-medium leading-relaxed">Finish steps, then mark task completed.</p>
         </div>
 
-        <!-- Step 3 -->
-        <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-card hover:shadow-xl transition-all duration-300 relative">
-          <div class="absolute -top-4 left-8 bg-dark-900 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-md">3</div>
-          <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12V7.5a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 7.5V12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0H3" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-3">Payment Updates + Support</h4>
-          <p class="text-gray-500 leading-relaxed">Track payment updates and get support until you’re paid.</p>
+        <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
+          <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">3</div>
+          <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-emerald-600 font-extrabold">₹</div>
+          <h4 class="text-xl font-extrabold text-ink mb-2">Updates + Support</h4>
+          <p class="text-sub font-medium leading-relaxed">Track payment updates and get support until paid.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm mb-3">Premium Promise</h2>
-          <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Built for trust & clarity</h3>
-          <p class="text-lg text-gray-500 mb-8 leading-relaxed">
-            Simple tasks, clean status, and reliable support. No confusion.
-          </p>
+  <!-- ✅ APP-LIKE UI (Rozsetu-style: bold Karla, premium cards, clean spacing) -->
+  <section id="app-ui" class="py-16 bg-white border-t border-line">
+    <div class="max-w-md mx-auto px-4">
 
-          <div class="space-y-6">
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-              </div>
-              <div>
-                <h4 class="text-lg font-bold text-gray-900">Verified Tasks</h4>
-                <p class="text-gray-500 mt-1">Clear instructions and a clean flow.</p>
-              </div>
-            </div>
+      <!-- Toggle -->
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center gap-2 bg-soft border border-line rounded-pill p-1 shadow-sm">
+          <span class="text-xs font-extrabold text-sub uppercase pl-3">View:</span>
+          <button onclick="toggleTaskState()"
+            class="px-3 py-2 text-sm font-extrabold text-ink hover:text-brand-500 transition">
+            <span id="view-label">Live Task (Video)</span>
+          </button>
+        </div>
+      </div>
 
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-indigo-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div>
-                <h4 class="text-lg font-bold text-gray-900">Payment Status</h4>
-                <p class="text-gray-500 mt-1">You’ll see updates clearly, inside the app.</p>
-              </div>
-            </div>
+      <!-- Task Detail Card -->
+      <div class="bg-white rounded-card shadow-card border border-line p-4 transition-all">
 
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-emerald-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5l-6 6-3-3" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 20.25h10.5A2.25 2.25 0 0019.5 18V6A2.25 2.25 0 0017.25 3.75H6.75A2.25 2.25 0 004.5 6v12A2.25 2.25 0 006.75 20.25z" />
+        <!-- Header -->
+        <div class="flex items-start gap-3 mb-4">
+          <div class="w-11 h-11 bg-ink rounded-2xl flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-extrabold text-lg">E</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-lg font-extrabold text-ink leading-tight line-clamp-2">Download App Task</h3>
+            <div class="text-xs font-extrabold text-emerald-600 mt-1">₹50.00</div>
+          </div>
+        </div>
+
+        <!-- Video -->
+        <div id="video-container" class="relative rounded-2xl overflow-hidden bg-black mb-4 border border-black/10">
+          <div class="aspect-[16/9] w-full flex items-center justify-center">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-pill bg-white/10 border border-white/15 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7 text-white/70">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-4.197-2.423A1 1 0 009 9.602v4.796a1 1 0 001.555.832l4.197-2.423a1 1 0 000-1.73z"/>
                 </svg>
-              </div>
-              <div>
-                <h4 class="text-lg font-bold text-gray-900">Support Until Paid</h4>
-                <p class="text-gray-500 mt-1">If anything is pending, support stays active.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Visual Side -->
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-r from-brand-500 to-indigo-600 rounded-[2.5rem] blur-2xl opacity-20"></div>
-          <div class="relative bg-white rounded-[2.5rem] p-10 shadow-2xl border border-gray-100">
-            <div class="flex items-center justify-between mb-8">
-              <div class="h-4 w-28 bg-gray-100 rounded-full"></div>
-              <div class="h-8 w-8 bg-gray-100 rounded-full"></div>
+        <!-- Link -->
+        <div class="bg-soft rounded-2xl p-3 mb-4 border border-line">
+          <div class="text-[11px] font-extrabold text-sub uppercase mb-2">Action Link</div>
+          <div class="flex items-center justify-between gap-2">
+            <div class="text-sm text-ink font-bold truncate bg-white px-3 py-2 rounded-xl border border-line w-full">
+              https://example.com/task/12345
             </div>
-            <div class="space-y-6">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-gray-50 flex-shrink-0"></div>
-                <div class="h-4 w-40 bg-gray-100 rounded"></div>
-              </div>
-              <div class="bg-gray-50 rounded-2xl h-32 w-full"></div>
-              <div class="flex justify-between items-center pt-4">
-                <div class="text-sm font-semibold text-gray-900">Earnings</div>
-                <div class="text-2xl font-bold text-brand-600">₹ 4,250.00</div>
-              </div>
-              <div class="text-sm text-gray-500">Payment status updates inside the app.</div>
+            <button onclick="copyToClipboard('https://example.com/task/12345', this)"
+              class="px-3 py-2 bg-white border border-line rounded-xl text-xs font-extrabold text-sub hover:bg-gray-50 active:bg-gray-100 transition">
+              COPY
+            </button>
+          </div>
+        </div>
+
+        <!-- Steps -->
+        <div class="space-y-3">
+          <div class="text-[11px] font-extrabold text-sub uppercase">Steps</div>
+
+          <div class="space-y-2">
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">1</div>
+              <div class="text-sm font-bold text-ink/80">Download the app from the provided link.</div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">2</div>
+              <div class="text-sm font-bold text-ink/80">Complete registration inside the app.</div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">3</div>
+              <div class="text-sm font-bold text-ink/80">Come back and mark as completed.</div>
             </div>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
+        <!-- Action Area -->
+        <div id="action-area">
+          <!-- LIVE -->
+          <div id="submit-ui" class="mt-6">
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input id="done-check" type="checkbox"
+                class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
+              <span class="text-sm font-extrabold text-ink">Task Completed?</span>
+            </label>
 
-  <!-- TRUST SECTION -->
-  <section class="py-24 bg-dark-900 text-white">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-      <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 text-brand-400">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m-8-4h8m-8 8h8" />
-        </svg>
-      </div>
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Clean. Simple. Reliable.</h2>
-      <p class="text-xl text-gray-400 leading-relaxed font-light max-w-2xl mx-auto">
-        Do tasks, mark completed, and track payment updates. Support is there if anything is pending.
-      </p>
-      <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-500 uppercase tracking-widest">
-        <span class="flex items-center gap-2"><span class="w-2 h-2 bg-brand-500 rounded-full"></span> Clear Tasks</span>
-        <span class="flex items-center gap-2"><span class="w-2 h-2 bg-brand-500 rounded-full"></span> Payment Updates</span>
-        <span class="flex items-center gap-2"><span class="w-2 h-2 bg-brand-500 rounded-full"></span> Support</span>
+            <button onclick="markCompleted()"
+              class="mt-3 w-full py-3.5 bg-brand-500 rounded-2xl text-white font-extrabold hover:bg-brand-600 active:scale-[0.99] shadow-[0_14px_30px_rgba(46,91,255,.18)] transition">
+              Mark Completed
+            </button>
+
+            <div class="mt-3 text-xs font-bold text-sub">
+              After marking complete, you’ll still get payment updates + support.
+            </div>
+          </div>
+
+          <!-- COMPLETED -->
+          <div id="status-ui" class="hidden mt-6">
+            <div class="bg-white border border-emerald-200 rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+              <div class="w-9 h-9 bg-emerald-50 rounded-pill flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-emerald-600">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <div class="font-extrabold text-ink">You already completed this task ✅</div>
+                <div class="text-xs font-bold text-sub">Payment updates are available inside the app.</div>
+              </div>
+              <button onclick="shareTask()"
+                class="ml-auto px-3 py-2 bg-emerald-50 text-emerald-700 rounded-xl text-xs font-extrabold hover:bg-emerald-100 transition">
+                Share
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section id="download" class="py-24 bg-white relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Start earning today</h2>
-      <p class="text-lg text-gray-500 mb-10 max-w-xl mx-auto">
-        Download the app, pick a task, and track your payment updates with support.
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6 tracking-tight">Start earning today</h2>
+      <p class="text-lg text-sub mb-10 max-w-xl mx-auto font-medium">
+        Download app, pick a task, and track payment updates with support.
       </p>
 
-      <!-- Replace href with your Play Store link -->
       <a href="#"
-        class="inline-flex items-center justify-center px-10 py-5 text-base font-bold text-white bg-dark-900 rounded-full hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+        class="inline-flex items-center justify-center px-10 py-5 text-base font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition shadow-xl">
         Download App Now
       </a>
-
-      <p class="mt-6 text-sm text-gray-400">Android support available.</p>
     </div>
-
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-50"></div>
-    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-50"></div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-50 border-t border-gray-200 py-12">
+  <footer class="bg-gray-50 border-t border-line py-12">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="flex items-center gap-2">
-        <div class="w-6 h-6 bg-gray-900 rounded flex items-center justify-center">
-          <span class="text-white font-bold text-xs">E</span>
+        <div class="w-7 h-7 bg-ink rounded-xl flex items-center justify-center">
+          <span class="text-white font-extrabold text-xs">E</span>
         </div>
-        <span class="font-bold text-gray-900">EarnSimply</span>
+        <span class="font-extrabold text-ink">EarnSimply</span>
       </div>
 
-      <div class="flex gap-8 text-sm text-gray-500">
-        <a href="#" class="hover:text-gray-900 transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-gray-900 transition-colors">Terms</a>
-        <a href="#" class="hover:text-gray-900 transition-colors">Support</a>
+      <div class="flex gap-8 text-sm text-sub font-bold">
+        <a href="#" class="hover:text-ink transition">Privacy Policy</a>
+        <span class="opacity-50">•</span>
+        <a href="#" class="hover:text-ink transition">Terms</a>
+        <span class="opacity-50">•</span>
+        <a href="#" class="hover:text-ink transition">Support</a>
       </div>
 
-      <div class="text-sm text-gray-400">
+      <div class="text-sm text-gray-400 font-bold">
         &copy; 2026 EarnSimply. All rights reserved.
       </div>
     </div>
   </footer>
+
+  <!-- ✅ FIXED LOGIC SCRIPT (rozsetu-like behavior) -->
+  <script>
+    // --- STATE ---
+    let isCompleted = false; // ✅ must be let (we toggle)
+    const hasVideo = true;
+
+    function applyUI() {
+      const viewLabel = document.getElementById('view-label');
+      const videoContainer = document.getElementById('video-container');
+      const submitUI = document.getElementById('submit-ui');
+      const statusUI = document.getElementById('status-ui');
+
+      if (isCompleted) {
+        viewLabel.innerText = "View Completed Status";
+        if (hasVideo) videoContainer.classList.add('hidden');
+        submitUI.classList.add('hidden');
+        statusUI.classList.remove('hidden');
+      } else {
+        viewLabel.innerText = "Live Task (Video)";
+        if (hasVideo) videoContainer.classList.remove('hidden');
+        submitUI.classList.remove('hidden');
+        statusUI.classList.add('hidden');
+      }
+    }
+
+    function toggleTaskState() {
+      isCompleted = !isCompleted;
+      applyUI();
+    }
+
+    function markCompleted() {
+      const check = document.getElementById('done-check');
+      if (!check.checked) {
+        alert("Please tick 'Task Completed?' first.");
+        return;
+      }
+      isCompleted = true;
+      applyUI();
+    }
+
+    // --- ACTIONS ---
+    function copyToClipboard(text, btnEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = btnEl || event?.target;
+        if (!btn) return;
+        const originalText = btn.innerText;
+        btn.innerText = "COPIED!";
+        setTimeout(() => btn.innerText = originalText, 1500);
+      });
+    }
+
+    function shareTask() {
+      const text = "I completed the task: Download App Task via EarnSimply!";
+      if (navigator.share) {
+        navigator.share({ title: 'EarnSimply', text, url: window.location.href });
+      } else {
+        copyToClipboard(window.location.href);
+        alert("Share not supported here. Link copied!");
+      }
+    }
+
+    // ✅ initial: show LIVE by default
+    window.onload = () => applyUI();
+  </script>
 
 </body>
 </html>
