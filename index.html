@@ -3,42 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rozsetu - Earn Via Tasks</title>
+
+  <!-- ✅ CHANGE THIS if your domain is different -->
+  <link rel="canonical" href="https://himanshusharma817303-wq.github.io/landing/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#0B1220" />
+
+  <!-- ✅ LOGO URL (as you requested: direct link) -->
+  <script>
+    window.ROZSETU_LOGO_URL =
+      "https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573";
+  </script>
+
+  <!-- ✅ SEO -->
+  <title>Rozsetu — Earn via Tasks | Complete Tasks & Track Payments</title>
+  <meta name="description" content="Rozsetu helps you complete tasks, mark work as done, and track payment updates with support until you’re paid. Download the app and start." />
+
+  <!-- ✅ Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rozsetu — Earn via Tasks" />
+  <meta property="og:description" content="Complete tasks, mark done, and track payment updates with support until paid." />
+  <meta property="og:url" content="https://himanshusharma817303-wq.github.io/landing/" />
+  <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
+
+  <!-- ✅ Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rozsetu — Earn via Tasks" />
+  <meta name="twitter:description" content="Complete tasks, mark done, and track payment updates with support until paid." />
+  <meta name="twitter:image" content="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
+
+  <!-- ✅ Favicon (same logo) -->
+  <link rel="icon" type="image/png" href="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
+  <link rel="apple-touch-icon" href="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
 
   <!-- ✅ Google Fonts: Karla -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <!-- ✅ Tailwind config MUST be before CDN script -->
   <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: { sans: ['Karla', 'system-ui', 'sans-serif'] },
-        extend: {
-          colors: {
-            ink: '#0B1220',
-            sub: '#64748b',
-            line: '#e5e7eb',
-            soft: '#f8fafc',
-            brand: { 500: '#2E5BFF', 600: '#2148E8' },
-            dark: { 900: '#0f172a', 800: '#111827' }
-          },
-          borderRadius: {
-            soft: '18px',
-            card: '24px',
-            pill: '9999px'
-          },
-          boxShadow: {
-            card: '0 10px 30px rgba(15, 23, 42, 0.08)',
-            card2: '0 6px 18px rgba(15, 23, 42, 0.10)'
+    tailwind = {
+      config: {
+        theme: {
+          fontFamily: { sans: ['Karla', 'system-ui', 'sans-serif'] },
+          extend: {
+            colors: {
+              ink: '#0B1220',
+              sub: '#64748b',
+              line: '#e5e7eb',
+              soft: '#f8fafc',
+              brand: { 500: '#2E5BFF', 600: '#2148E8' },
+              dark: { 900: '#0f172a', 800: '#111827' }
+            },
+            borderRadius: {
+              soft: '18px',
+              card: '24px',
+              pill: '9999px'
+            },
+            boxShadow: {
+              card: '0 10px 30px rgba(15, 23, 42, 0.08)',
+              card2: '0 6px 18px rgba(15, 23, 42, 0.10)'
+            }
           }
         }
       }
-    }
+    };
   </script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body { background:#f8fafc; color:#0B1220; -webkit-font-smoothing:antialiased; }
@@ -48,6 +82,23 @@
         linear-gradient(180deg, #0B1220 0%, #0f172a 60%, #111827 100%);
     }
   </style>
+
+  <!-- ✅ Schema.org (Google understands this is an app) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Rozsetu",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Android",
+    "description":"Complete tasks, mark done, and track payment updates with support until paid.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"INR"
+    }
+  }
+  </script>
 </head>
 
 <body class="overflow-x-hidden font-sans">
@@ -56,13 +107,20 @@
   <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-line">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <div class="flex items-center gap-2">
-          <div class="w-9 h-9 rounded-xl bg-ink flex items-center justify-center shadow">
-          </div>
+        <div class="flex items-center gap-3">
+          <!-- ✅ LOGO -->
+          <img
+            id="nav-logo"
+            src=""
+            alt="Rozsetu Logo"
+            class="w-9 h-9 rounded-xl shadow"
+            loading="eager"
+            decoding="async"
+          />
           <span class="font-extrabold text-xl tracking-tight text-ink">Rozsetu</span>
         </div>
 
-        <a href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank"
+        <a href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
           class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition">
           Download App
         </a>
@@ -71,7 +129,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero overflow-hidden">
+  <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-white/10 border border-white/10 mb-8">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -88,7 +146,7 @@
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank"
+        <a href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
           class="w-full sm:w-auto px-8 py-4 text-base font-extrabold text-white bg-brand-500 rounded-pill hover:bg-brand-600 transition shadow-[0_12px_30px_rgba(46,91,255,.25)]">
           Download App
         </a>
@@ -98,185 +156,189 @@
         </a>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-brand-500 font-extrabold tracking-wide uppercase text-sm mb-3">Simple Flow</h2>
-        <h3 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">How it works</h3>
-        <p class="text-sub text-lg font-medium">Clear steps. Premium experience.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
-          <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">1</div>
-          <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">✓</div>
-          <h4 class="text-xl font-extrabold text-ink mb-2">Choose a Task</h4>
-          <p class="text-sub font-medium leading-relaxed">Pick from available tasks inside the app.</p>
+  <main>
+    <section id="how-it-works" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-brand-500 font-extrabold tracking-wide uppercase text-sm mb-3">Simple Flow</h2>
+          <h3 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">How it works</h3>
+          <p class="text-sub text-lg font-medium">Clear steps. Premium experience.</p>
         </div>
 
-        <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
-          <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">2</div>
-          <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">▶</div>
-          <h4 class="text-xl font-extrabold text-ink mb-2">Complete & Mark Done</h4>
-          <p class="text-sub font-medium leading-relaxed">Finish steps, then mark task completed.</p>
-        </div>
-
-        <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
-          <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">3</div>
-          <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-emerald-600 font-extrabold">₹</div>
-          <h4 class="text-xl font-extrabold text-ink mb-2">Updates + Support</h4>
-          <p class="text-sub font-medium leading-relaxed">Track payment updates and get support until paid.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ APP-LIKE UI (Rozsetu-style: bold Karla, premium cards, clean spacing) -->
-  <section id="app-ui" class="py-16 bg-white border-t border-line">
-    <div class="max-w-md mx-auto px-4">
-
-      <!-- Toggle -->
-      <div class="flex justify-center mb-6">
-        <div class="inline-flex items-center gap-2 bg-soft border border-line rounded-pill p-1 shadow-sm">
-          <span class="text-xs font-extrabold text-sub uppercase pl-3">View:</span>
-          <button onclick="toggleTaskState()"
-            class="px-3 py-2 text-sm font-extrabold text-ink hover:text-brand-500 transition">
-            <span id="view-label">Live Task (Video)</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Task Detail Card -->
-      <div class="bg-white rounded-card shadow-card border border-line p-4 transition-all">
-
-        <!-- Header -->
-        <div class="flex items-start gap-3 mb-4">
-          <div class="w-11 h-11 bg-ink rounded-2xl flex items-center justify-center flex-shrink-0">
-            <span class="text-white font-extrabold text-lg">E</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
+            <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">1</div>
+            <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">✓</div>
+            <h4 class="text-xl font-extrabold text-ink mb-2">Choose a Task</h4>
+            <p class="text-sub font-medium leading-relaxed">Pick from available tasks inside the app.</p>
           </div>
-          <div class="flex-1 min-w-0">
-            <h3 class="text-lg font-extrabold text-ink leading-tight line-clamp-2">Download App Task</h3>
-            <div class="text-xs font-extrabold text-emerald-600 mt-1">₹50.00</div>
+
+          <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
+            <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">2</div>
+            <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">▶</div>
+            <h4 class="text-xl font-extrabold text-ink mb-2">Complete & Mark Done</h4>
+            <p class="text-sub font-medium leading-relaxed">Finish steps, then mark task completed.</p>
+          </div>
+
+          <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
+            <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">3</div>
+            <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-emerald-600 font-extrabold">₹</div>
+            <h4 class="text-xl font-extrabold text-ink mb-2">Updates + Support</h4>
+            <p class="text-sub font-medium leading-relaxed">Track payment updates and get support until paid.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Video -->
-        <div id="video-container" class="relative rounded-2xl overflow-hidden bg-black mb-4 border border-black/10">
-          <div class="aspect-[16/9] w-full flex items-center justify-center">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-14 h-14 rounded-pill bg-white/10 border border-white/15 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7 text-white/70">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-4.197-2.423A1 1 0 009 9.602v4.796a1 1 0 001.555.832l4.197-2.423a1 1 0 000-1.73z"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- APP-LIKE UI -->
+    <section id="app-ui" class="py-16 bg-white border-t border-line">
+      <div class="max-w-md mx-auto px-4">
 
-        <!-- Link -->
-        <div class="bg-soft rounded-2xl p-3 mb-4 border border-line">
-          <div class="text-[11px] font-extrabold text-sub uppercase mb-2">Action Link</div>
-          <div class="flex items-center justify-between gap-2">
-            <div class="text-sm text-ink font-bold truncate bg-white px-3 py-2 rounded-xl border border-line w-full">
-              https://example.com/task/12345
-            </div>
-            <button onclick="copyToClipboard('wwwexamplecom/task/12345', this)"
-              class="px-3 py-2 bg-white border border-line rounded-xl text-xs font-extrabold text-sub hover:bg-gray-50 active:bg-gray-100 transition">
-              COPY
+        <!-- Toggle -->
+        <div class="flex justify-center mb-6">
+          <div class="inline-flex items-center gap-2 bg-soft border border-line rounded-pill p-1 shadow-sm">
+            <span class="text-xs font-extrabold text-sub uppercase pl-3">View:</span>
+            <button type="button" onclick="toggleTaskState()"
+              class="px-3 py-2 text-sm font-extrabold text-ink hover:text-brand-500 transition"
+              aria-label="Toggle task state">
+              <span id="view-label">Live Task (Video)</span>
             </button>
           </div>
         </div>
 
-        <!-- Steps -->
-        <div class="space-y-3">
-          <div class="text-[11px] font-extrabold text-sub uppercase">Steps</div>
+        <!-- Task Detail Card -->
+        <div class="bg-white rounded-card shadow-card border border-line p-4 transition-all">
 
-          <div class="space-y-2">
-            <div class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">1</div>
-              <div class="text-sm font-bold text-ink/80">Download the app from the provided link.</div>
+          <!-- Header -->
+          <div class="flex items-start gap-3 mb-4">
+            <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-line bg-white">
+              <img id="card-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-
-            <div class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">2</div>
-              <div class="text-sm font-bold text-ink/80">Complete registration inside the app.</div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">3</div>
-              <div class="text-sm font-bold text-ink/80">Come back and mark as completed.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Area -->
-        <div id="action-area">
-          <!-- LIVE -->
-          <div id="submit-ui" class="mt-6">
-            <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input id="done-check" type="checkbox"
-                class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
-              <span class="text-sm font-extrabold text-ink">Task Completed?</span>
-            </label>
-
-            <button onclick="markCompleted()"
-              class="mt-3 w-full py-3.5 bg-brand-500 rounded-2xl text-white font-extrabold hover:bg-brand-600 active:scale-[0.99] shadow-[0_14px_30px_rgba(46,91,255,.18)] transition">
-              Mark Completed
-            </button>
-
-            <div class="mt-3 text-xs font-bold text-sub">
-              After marking complete, you’ll still get payment updates + support.
+            <div class="flex-1 min-w-0">
+              <h3 class="text-lg font-extrabold text-ink leading-tight line-clamp-2">Download App Task</h3>
+              <div class="text-xs font-extrabold text-emerald-600 mt-1">₹50.00</div>
             </div>
           </div>
 
-          <!-- COMPLETED -->
-          <div id="status-ui" class="hidden mt-6">
-            <div class="bg-white border border-emerald-200 rounded-2xl p-4 flex items-center gap-3 shadow-sm">
-              <div class="w-9 h-9 bg-emerald-50 rounded-pill flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-emerald-600">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                </svg>
+          <!-- Video -->
+          <div id="video-container" class="relative rounded-2xl overflow-hidden bg-black mb-4 border border-black/10">
+            <div class="aspect-[16/9] w-full flex items-center justify-center">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-14 h-14 rounded-pill bg-white/10 border border-white/15 flex items-center justify-center" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7 text-white/70">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-4.197-2.423A1 1 0 009 9.602v4.796a1 1 0 001.555.832l4.197-2.423a1 1 0 000-1.73z"/>
+                  </svg>
+                </div>
               </div>
-              <div class="min-w-0">
-                <div class="font-extrabold text-ink">You already completed this task ✅</div>
-                <div class="text-xs font-bold text-sub">Payment updates are available inside the app.</div>
+            </div>
+          </div>
+
+          <!-- Link -->
+          <div class="bg-soft rounded-2xl p-3 mb-4 border border-line">
+            <div class="text-[11px] font-extrabold text-sub uppercase mb-2">Action Link</div>
+            <div class="flex items-center justify-between gap-2">
+              <div id="task-link" class="text-sm text-ink font-bold truncate bg-white px-3 py-2 rounded-xl border border-line w-full">
+                https://example.com/task/12345
               </div>
-              <button onclick="shareTask()"
-                class="ml-auto px-3 py-2 bg-emerald-50 text-emerald-700 rounded-xl text-xs font-extrabold hover:bg-emerald-100 transition">
-                Share
+              <button type="button" onclick="copyTaskLink(this)"
+                class="px-3 py-2 bg-white border border-line rounded-xl text-xs font-extrabold text-sub hover:bg-gray-50 active:bg-gray-100 transition"
+                aria-label="Copy task link">
+                COPY
               </button>
             </div>
           </div>
+
+          <!-- Steps -->
+          <div class="space-y-3">
+            <div class="text-[11px] font-extrabold text-sub uppercase">Steps</div>
+
+            <div class="space-y-2">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">1</div>
+                <div class="text-sm font-bold text-ink/80">Download the app from the provided link.</div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">2</div>
+                <div class="text-sm font-bold text-ink/80">Complete registration inside the app.</div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">3</div>
+                <div class="text-sm font-bold text-ink/80">Come back and mark as completed.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Area -->
+          <div id="action-area">
+            <!-- LIVE -->
+            <div id="submit-ui" class="mt-6">
+              <label class="flex items-center gap-2 cursor-pointer select-none">
+                <input id="done-check" type="checkbox"
+                  class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
+                <span class="text-sm font-extrabold text-ink">Task Completed?</span>
+              </label>
+
+              <button type="button" onclick="markCompleted()"
+                class="mt-3 w-full py-3.5 bg-brand-500 rounded-2xl text-white font-extrabold hover:bg-brand-600 active:scale-[0.99] shadow-[0_14px_30px_rgba(46,91,255,.18)] transition">
+                Mark Completed
+              </button>
+
+              <div class="mt-3 text-xs font-bold text-sub">
+                After marking complete, you’ll still get payment updates + support.
+              </div>
+            </div>
+
+            <!-- COMPLETED -->
+            <div id="status-ui" class="hidden mt-6">
+              <div class="bg-white border border-emerald-200 rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+                <div class="w-9 h-9 bg-emerald-50 rounded-pill flex items-center justify-center" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-emerald-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <div class="font-extrabold text-ink">You already completed this task ✅</div>
+                  <div class="text-xs font-bold text-sub">Payment updates are available inside the app.</div>
+                </div>
+                <button type="button" onclick="shareTask()"
+                  class="ml-auto px-3 py-2 bg-emerald-50 text-emerald-700 rounded-xl text-xs font-extrabold hover:bg-emerald-100 transition">
+                  Share
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FINAL CTA -->
-  <section id="download" class="py-24 bg-white relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6 tracking-tight">Start earning today</h2>
-      <p class="text-lg text-sub mb-10 max-w-xl mx-auto font-medium">
-        Download app, pick a task, and track payment updates with support.
-      </p>
+    <!-- FINAL CTA -->
+    <section id="download" class="py-24 bg-white relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6 tracking-tight">Start earning today</h2>
+        <p class="text-lg text-sub mb-10 max-w-xl mx-auto font-medium">
+          Download app, pick a task, and track payment updates with support.
+        </p>
 
-      <a href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank"
-        class="inline-flex items-center justify-center px-10 py-5 text-base font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition shadow-xl">
-        Download App Now
-      </a>
-    </div>
-  </section>
+        <a href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
+          class="inline-flex items-center justify-center px-10 py-5 text-base font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition shadow-xl">
+          Download App Now
+        </a>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="bg-gray-50 border-t border-line py-12">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="flex items-center gap-2">
-        <div class="w-7 h-7 bg-ink rounded-xl flex items-center justify-center">
-          <span class="text-white font-extrabold text-xs">E</span>
+        <div class="w-7 h-7 rounded-xl overflow-hidden border border-line bg-white">
+          <img id="footer-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" loading="lazy" decoding="async" />
         </div>
         <span class="font-extrabold text-ink">Rozsetu</span>
       </div>
@@ -295,10 +357,21 @@
     </div>
   </footer>
 
-  <!-- ✅ FIXED LOGIC SCRIPT (rozsetu-like behavior) -->
+  <!-- ✅ FIXED LOGIC SCRIPT -->
   <script>
+    // --- LOGO INJECT (one place, used everywhere) ---
+    const LOGO_URL = window.ROZSETU_LOGO_URL;
+
+    function injectLogos() {
+      const ids = ["nav-logo", "card-logo", "footer-logo"];
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.src = LOGO_URL;
+      });
+    }
+
     // --- STATE ---
-    let isCompleted = false; // ✅ must be let (we toggle)
+    let isCompleted = false;
     const hasVideo = true;
 
     function applyUI() {
@@ -336,28 +409,43 @@
     }
 
     // --- ACTIONS ---
+    function getTaskLinkText() {
+      const el = document.getElementById("task-link");
+      return (el?.innerText || "").trim();
+    }
+
     function copyToClipboard(text, btnEl) {
+      const btn = btnEl || null;
       navigator.clipboard.writeText(text).then(() => {
-        const btn = btnEl || event?.target;
         if (!btn) return;
         const originalText = btn.innerText;
         btn.innerText = "COPIED!";
         setTimeout(() => btn.innerText = originalText, 1500);
+      }).catch(() => {
+        alert("Copy failed. Please copy manually.");
       });
     }
 
+    function copyTaskLink(btn) {
+      copyToClipboard(getTaskLinkText(), btn);
+    }
+
     function shareTask() {
-      const text = "I completed the task: Download App Task via Rozsetu!";
+      const text = "I completed a task using Rozsetu.";
+      const url = window.location.href;
       if (navigator.share) {
-        navigator.share({ title: 'EarnSimply', text, url: window.location.href });
+        navigator.share({ title: 'Rozsetu', text, url });
       } else {
-        copyToClipboard(window.location.href);
+        copyToClipboard(url);
         alert("Share not supported here. Link copied!");
       }
     }
 
-    // ✅ initial: show LIVE by default
-    window.onload = () => applyUI();
+    // ✅ initial
+    window.onload = () => {
+      injectLogos();
+      applyUI();
+    };
   </script>
 
 </body>
