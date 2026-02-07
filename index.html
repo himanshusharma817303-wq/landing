@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
+  <!-- Android Responsive Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
   <!-- ✅ HIGH-END SEO TAGS -->
@@ -142,6 +143,17 @@
     "description": "Rozsetu is the best task to earn app. Complete simple tasks like surveys and referrals to earn money online instantly."
   }
   </script>
+
+  <!-- ✅ GOOGLE ADS TAG (Global) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17937912851"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17937912851');
+  </script>
+  
 </head>
 
 <body class="overflow-x-hidden font-sans antialiased">
@@ -234,10 +246,11 @@
           </h1>
 
           <p class="text-sm sm:text-base text-slate-300 max-w-lg mx-auto lg:mx-0 mb-6 font-medium leading-relaxed">
-            Rozsetu is the best earning app for Android. Make money from home by completing simple daily tasks. Instant cashbacks and 24/7 support available.
+            Rozsetu is the best earning app for Android. Make money from home by completing simple daily tasks. Instant withdrawals and 24/7 support available.
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <!-- Download Button 1 (Hero) -->
             <a id="apk-link-hero" href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
               class="w-full sm:w-auto px-6 py-3 text-sm font-bold text-white bg-brand-600 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
@@ -306,7 +319,7 @@
             <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 font-bold text-lg">3</div>
             <h4 class="text-lg font-display font-bold text-ink mb-2">Get Paid Instantly</h4>
             <p class="text-sub font-medium text-sm leading-relaxed">
-              Once verified, your earnings are credited instantly.
+              Once verified, your earnings are credited instantly. Withdraw to your bank/UPI.
             </p>
           </div>
         </div>
@@ -388,6 +401,7 @@
           Join the best earning community. Download Rozsetu and turn your free time into real money.
         </p>
 
+        <!-- Download Button 2 (Footer) -->
         <a id="apk-link-cta" href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
           class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white bg-ink rounded-2xl hover:bg-dark-900 transition shadow-xl transform hover:-translate-y-1 w-full sm:w-auto">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
@@ -467,7 +481,7 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT -->
+  <!-- JAVASCRIPT & GOOGLE ADS EVENT TRACKING -->
   <script>
     const LOGO_URL = window.ROZSETU_LOGO_URL;
     
@@ -477,6 +491,13 @@
         const el = document.getElementById(id);
         if (el) el.src = LOGO_URL;
       });
+    }
+
+    // --- GOOGLE ADS CONVERSION TRACKING FUNCTION ---
+    // This function fires the conversion event when called
+    function trackConversion() {
+      gtag('event', 'conversion', {'send_to': 'AW-17937912851/NkVPCPuttPQbEJOou-lC'});
+      console.log("Conversion tracked"); // For debugging
     }
 
     // --- MODAL FUNCTIONS ---
@@ -518,9 +539,22 @@
       });
     });
 
-    // --- ANIMATION OBSERVER ---
+    // --- ANIMATION OBSERVER & BUTTON TRACKING SETUP ---
     document.addEventListener('DOMContentLoaded', () => {
       injectLogos();
+
+      // 1. Attach Conversion Tracking to Download Buttons
+      const downloadBtnHero = document.getElementById('apk-link-hero');
+      const downloadBtnCta = document.getElementById('apk-link-cta');
+
+      if(downloadBtnHero) {
+        downloadBtnHero.addEventListener('click', trackConversion);
+      }
+      if(downloadBtnCta) {
+        downloadBtnCta.addEventListener('click', trackConversion);
+      }
+
+      // 2. Scroll Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
