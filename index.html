@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0B1220" />
 
-  <!-- ✅ LOGO URL (direct link as you requested) -->
+  <!-- ✅ LOGO URL (Preserved from original) -->
   <script>
     window.ROZSETU_LOGO_URL =
       "https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573";
@@ -36,18 +36,19 @@
   <link rel="icon" type="image/png" href="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
   <link rel="apple-touch-icon" href="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
 
-  <!-- ✅ Fonts: Karla + Sans fallback -->
+  <!-- ✅ Fonts: Karla + Inter for UI text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- ✅ Tailwind config (Karla + system sans) -->
+  <!-- ✅ Tailwind config -->
   <script>
     tailwind = {
       config: {
         theme: {
           fontFamily: {
-            sans: ['Karla', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Karla', 'ui-sans-serif', 'system-ui', 'sans-serif']
           },
           extend: {
             colors: {
@@ -55,13 +56,24 @@
               sub: '#64748b',
               line: '#e5e7eb',
               soft: '#f8fafc',
-              brand: { 500: '#2E5BFF', 600: '#2148E8' },
+              brand: { 400: '#5b7fff', 500: '#2E5BFF', 600: '#2148E8', glow: 'rgba(46, 91, 255, 0.5)' },
               dark: { 900: '#0f172a', 800: '#111827' }
             },
             borderRadius: { soft: '18px', card: '24px', pill: '9999px' },
             boxShadow: {
-              card: '0 10px 30px rgba(15, 23, 42, 0.08)',
-              card2: '0 6px 18px rgba(15, 23, 42, 0.10)'
+              card: '0 10px 40px -10px rgba(15, 23, 42, 0.08)',
+              card2: '0 20px 50px -12px rgba(15, 23, 42, 0.15)',
+              glow: '0 0 20px rgba(46, 91, 255, 0.3)'
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
             }
           }
         }
@@ -72,12 +84,51 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    /* Base Setup */
     body { background:#f8fafc; color:#0B1220; -webkit-font-smoothing:antialiased; }
+    
+    /* Advanced Background */
     .bg-hero {
-      background:
-        radial-gradient(900px 400px at 50% -10%, rgba(46,91,255,.22), transparent 60%),
-        linear-gradient(180deg, #0B1220 0%, #0f172a 60%, #111827 100%);
+      background-color: #0B1220;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(46,91,255,0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(46,91,255,0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(46,91,255,0.1) 0px, transparent 50%),
+        linear-gradient(to bottom, #0B1220, #0f172a);
+      background-attachment: fixed;
     }
+
+    /* Glassmorphism Utilities */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .glass-high {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Scroll Animation Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
   </style>
 
   <!-- ✅ Schema.org -->
@@ -94,114 +145,181 @@
   </script>
 </head>
 
-<body class="overflow-x-hidden font-sans">
+<body class="overflow-x-hidden font-sans antialiased selection:bg-brand-500 selection:text-white">
 
   <!-- NAV -->
-  <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-line">
+  <nav class="fixed w-full z-50 glass-high transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <div class="flex items-center gap-3">
-          <img id="nav-logo" src="" alt="Rozsetu Logo" class="w-9 h-9 rounded-xl shadow" loading="eager" decoding="async"/>
+        <!-- Logo -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+          <div class="relative w-10 h-10 rounded-xl overflow-hidden shadow-sm ring-1 ring-black/5 bg-white">
+            <img id="nav-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" loading="eager" decoding="async"/>
+          </div>
           <div class="leading-tight">
-            <div class="font-extrabold text-xl tracking-tight text-ink">Rozsetu</div>
-            <div class="text-[11px] font-bold text-sub -mt-0.5">Complete tasks • Earn rewards</div>
+            <div class="font-display font-extrabold text-xl tracking-tight text-ink">Rozsetu</div>
+            <div class="text-[10px] font-bold text-sub uppercase tracking-wider">Tasks & Rewards</div>
           </div>
         </div>
 
-        <div class="hidden md:flex items-center gap-3">
-          <a href="#how-it-works" class="text-sm font-extrabold text-sub hover:text-ink transition">How it works</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#how-it-works" class="text-sm font-bold text-sub hover:text-brand-500 transition-colors">How it works</a>
+          <a href="#app-ui" class="text-sm font-bold text-sub hover:text-brand-500 transition-colors">Features</a>
           <a href="#download"
-             class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition">
+             class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-brand-500 rounded-pill hover:bg-brand-600 transition shadow-[0_4px_14px_rgba(46,91,255,0.4)] hover:shadow-[0_6px_20px_rgba(46,91,255,0.6)] transform hover:-translate-y-0.5">
             Download App
           </a>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-ink hover:text-brand-500 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-line shadow-xl">
+      <div class="px-6 py-4 space-y-3">
+        <a href="#how-it-works" class="block text-base font-bold text-sub hover:text-brand-500 py-2">How it works</a>
+        <a href="#app-ui" class="block text-base font-bold text-sub hover:text-brand-500 py-2">Features</a>
+        <hr class="border-line">
+        <a href="#download" class="block w-full text-center px-6 py-3 text-base font-bold text-white bg-brand-500 rounded-pill">Download App</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO (more modern UI/UX) -->
-  <header class="relative pt-32 pb-16 lg:pt-44 lg:pb-24 bg-hero overflow-hidden">
+  <!-- HERO -->
+  <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-[120px] -z-10"></div>
+
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Left -->
-        <div class="text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-white/10 border border-white/10 mb-6">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="text-sm font-extrabold text-white/80 tracking-wide">Simple tasks • Rewards • 24/7 help</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Content -->
+        <div class="text-center lg:text-left reveal">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-sm font-semibold text-white/90 tracking-wide">Live Tasks Available</span>
           </div>
 
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-5 leading-[1.05]">
-            Complete simple tasks.<br />
-            <span class="text-white/90">Get rewards.</span>
+          <h1 class="text-5xl md:text-7xl font-display font-extrabold text-white tracking-tight mb-6 leading-[1.1]">
+            Complete tasks.<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-white">Earn rewards.</span>
           </h1>
 
-          <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto lg:mx-0 mb-8 font-medium leading-relaxed">
-            Rozsetu helps you pick tasks, complete them in the app, and track status updates.
-            Need help anytime? Support is available 24/7 inside the app.
+          <p class="text-lg md:text-xl text-slate-300 max-w-xl mx-auto lg:mx-0 mb-10 font-medium leading-relaxed">
+            Rozsetu is the simplest way to earn. Pick tasks, follow clear steps, and get paid directly. Need help? Support is inside the app 24/7.
           </p>
 
-          <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <a id="apk-link-hero" href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
-              class="w-full sm:w-auto px-8 py-4 text-base font-extrabold text-white bg-brand-500 rounded-pill hover:bg-brand-600 transition shadow-[0_12px_30px_rgba(46,91,255,.25)]">
-              Download Rozsetu App
+              class="group relative w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition shadow-[0_10px_40px_rgba(46,91,255,.35)] overflow-hidden">
+              <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              <span class="relative flex items-center justify-center gap-2">
+                Download App
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              </span>
             </a>
 
             <a href="#how-it-works"
-              class="w-full sm:w-auto px-8 py-4 text-base font-extrabold text-white/90 bg-white/10 border border-white/15 rounded-pill hover:bg-white/15 transition">
-              See how it works
+              class="w-full sm:w-auto px-8 py-4 text-base font-bold text-white/80 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/20 transition backdrop-blur-sm">
+              How it works
             </a>
           </div>
-
-          <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-bold text-white/55">
-            <span class="px-3 py-1.5 rounded-pill bg-white/10 border border-white/10">Fast onboarding</span>
-            <span class="px-3 py-1.5 rounded-pill bg-white/10 border border-white/10">Clean task flow</span>
-            <span class="px-3 py-1.5 rounded-pill bg-white/10 border border-white/10">24/7 in-app help</span>
+          
+          <div class="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <div class="flex -space-x-3">
+               <!-- Placeholder avatars -->
+               <div class="w-10 h-10 rounded-full border-2 border-ink bg-gray-700 flex items-center justify-center text-xs text-white font-bold">JD</div>
+               <div class="w-10 h-10 rounded-full border-2 border-ink bg-gray-600 flex items-center justify-center text-xs text-white font-bold">AS</div>
+               <div class="w-10 h-10 rounded-full border-2 border-ink bg-gray-500 flex items-center justify-center text-xs text-white font-bold">MK</div>
+               <div class="w-10 h-10 rounded-full border-2 border-ink bg-brand-500 flex items-center justify-center text-xs text-white font-bold">+2k</div>
+            </div>
+            <div class="text-sm font-semibold text-slate-400">
+              Trusted by 2,000+ earners
+            </div>
           </div>
         </div>
 
-        <!-- Right (App preview card) -->
-        <div class="max-w-md mx-auto w-full">
-          <div class="bg-white/10 border border-white/10 rounded-card p-4 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,.25)]">
-            <div class="bg-white rounded-card border border-black/10 shadow-card p-4">
-              <div class="flex items-start gap-3 mb-4">
-                <div class="w-11 h-11 rounded-2xl overflow-hidden border border-line bg-white flex items-center justify-center">
-                  <img id="hero-card-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" />
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="text-[11px] font-extrabold text-sub uppercase">Example task</div>
-                  <div class="text-lg font-extrabold text-ink leading-tight line-clamp-2">
-                    App Installation & Registration
+        <!-- Right: App Mockup (Floating) -->
+        <div class="max-w-md mx-auto w-full lg:mr-0 reveal delay-100">
+          <div class="relative animate-float">
+            <!-- Glow Behind -->
+            <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-brand-600 rounded-[2.5rem] blur opacity-30"></div>
+            
+            <!-- Phone Frame -->
+            <div class="relative bg-ink border-8 border-ink/80 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-[9/18] md:aspect-[9/19]">
+              <!-- Notch -->
+              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-ink/90 rounded-b-xl z-20"></div>
+              
+              <!-- Screen Content -->
+              <div class="w-full h-full bg-slate-50 flex flex-col pt-10 relative">
+                <!-- App Header -->
+                <div class="px-5 pb-4 bg-white shadow-sm z-10">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <img id="hero-card-logo" src="" alt="App Logo" class="w-8 h-8 rounded-lg bg-slate-100 object-cover"/>
+                      <span class="font-display font-bold text-lg text-ink">Rozsetu</span>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
                   </div>
-                  <div class="text-xs font-extrabold text-emerald-600 mt-1">Reward: ₹50</div>
+                </div>
+
+                <!-- Scrollable Area -->
+                <div class="flex-1 overflow-y-auto p-5 space-y-4 no-scrollbar">
+                  
+                  <!-- Balance Card -->
+                  <div class="bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl p-5 text-white shadow-lg shadow-brand-500/30">
+                    <div class="text-xs font-semibold opacity-80 mb-1">Total Earnings</div>
+                    <div class="text-3xl font-display font-extrabold mb-4">₹ 1,240</div>
+                    <div class="flex gap-2">
+                      <span class="px-2 py-1 bg-white/20 rounded-md text-xs font-bold backdrop-blur-sm">Verified</span>
+                      <span class="px-2 py-1 bg-white/20 rounded-md text-xs font-bold backdrop-blur-sm">Active</span>
+                    </div>
+                  </div>
+
+                  <!-- Task Card 1 -->
+                  <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                      </div>
+                      <div>
+                        <div class="font-bold text-ink text-sm">Install & Register</div>
+                        <div class="text-xs font-semibold text-sub">New User Offer</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-emerald-600 font-extrabold text-sm">+₹50</span>
+                      <button class="px-3 py-1.5 bg-ink text-white text-xs font-bold rounded-lg">Start</button>
+                    </div>
+                  </div>
+
+                  <!-- Task Card 2 -->
+                  <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm opacity-60">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      </div>
+                      <div>
+                        <div class="font-bold text-ink text-sm">Watch Video</div>
+                        <div class="text-xs font-semibold text-sub">Daily Task</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-emerald-600 font-extrabold text-sm">+₹10</span>
+                      <span class="text-xs font-bold text-sub line-through">Done</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
-              <div class="rounded-2xl bg-soft border border-line p-3">
-                <div class="flex items-center justify-between">
-                  <div class="text-xs font-extrabold text-sub uppercase">Status</div>
-                  <div class="text-xs font-extrabold text-ink">Live</div>
-                </div>
-                <div class="mt-2 text-sm font-bold text-ink/80">Complete steps carefully in the app.</div>
-                <div class="mt-3 grid grid-cols-3 gap-2">
-                  <div class="bg-white border border-line rounded-xl p-2 text-center">
-                    <div class="text-xs font-extrabold text-ink">Step 1</div>
-                    <div class="text-[11px] font-bold text-sub">Open link</div>
-                  </div>
-                  <div class="bg-white border border-line rounded-xl p-2 text-center">
-                    <div class="text-xs font-extrabold text-ink">Step 2</div>
-                    <div class="text-[11px] font-bold text-sub">Register</div>
-                  </div>
-                  <div class="bg-white border border-line rounded-xl p-2 text-center">
-                    <div class="text-xs font-extrabold text-ink">Step 3</div>
-                    <div class="text-[11px] font-bold text-sub">Mark done</div>
-                  </div>
-                </div>
-              </div>
-
-              <a href="#download"
-                class="mt-4 inline-flex w-full items-center justify-center py-3.5 bg-ink rounded-2xl text-white font-extrabold hover:bg-dark-900 transition">
-                Start with Rozsetu
-              </a>
             </div>
           </div>
         </div>
@@ -211,184 +329,212 @@
 
   <main>
     <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <h2 class="text-brand-500 font-extrabold tracking-wide uppercase text-sm mb-3">Simple Flow</h2>
-          <h3 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">How it works</h3>
-          <p class="text-sub text-lg font-medium">One app. Clear steps. Rewards for completed tasks.</p>
+    <section id="how-it-works" class="py-24 bg-white relative overflow-hidden">
+      <!-- Background decorations -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-50 skew-x-12 translate-x-20 z-0"></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <h2 class="text-brand-500 font-extrabold tracking-wider uppercase text-sm mb-4">Simple Flow</h2>
+          <h3 class="text-3xl md:text-5xl font-display font-extrabold text-ink mb-6">How Rozsetu works</h3>
+          <p class="text-sub text-lg font-medium max-w-lg mx-auto">Earning money shouldn't be complicated. We've streamlined the process into three easy steps.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
-            <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">1</div>
-            <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">✓</div>
-            <h4 class="text-xl font-extrabold text-ink mb-2">Choose a task</h4>
+          <!-- Step 1 -->
+          <div class="group p-8 bg-white rounded-3xl border border-slate-100 shadow-card hover:shadow-card2 hover:-translate-y-2 transition-all duration-300 relative reveal delay-100">
+            <div class="absolute -top-6 left-8 bg-ink text-white w-12 h-12 rounded-2xl flex items-center justify-center font-extrabold text-lg shadow-lg group-hover:scale-110 transition-transform">1</div>
+            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-bold text-ink mb-3">Choose a task</h4>
             <p class="text-sub font-medium leading-relaxed">
-              Pick a task from the list and read the steps inside the app.
+              Browse our curated list of tasks. You'll see exactly how much you earn before you start.
             </p>
           </div>
 
-          <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
-            <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">2</div>
-            <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-brand-500 font-extrabold">▶</div>
-            <h4 class="text-xl font-extrabold text-ink mb-2">Complete steps</h4>
+          <!-- Step 2 -->
+          <div class="group p-8 bg-white rounded-3xl border border-slate-100 shadow-card hover:shadow-card2 hover:-translate-y-2 transition-all duration-300 relative reveal delay-200">
+            <div class="absolute -top-6 left-8 bg-ink text-white w-12 h-12 rounded-2xl flex items-center justify-center font-extrabold text-lg shadow-lg group-hover:scale-110 transition-transform">2</div>
+            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-8 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-bold text-ink mb-3">Complete steps</h4>
             <p class="text-sub font-medium leading-relaxed">
-              Follow the instructions and finish the task smoothly.
+              Follow the simple instructions provided for each task. Usually, it's just visiting a link or registering.
             </p>
           </div>
 
-          <div class="p-8 bg-white rounded-card border border-line shadow-card hover:shadow-card2 transition relative">
-            <div class="absolute -top-4 left-8 bg-ink text-white w-9 h-9 rounded-pill flex items-center justify-center font-extrabold text-sm">3</div>
-            <div class="w-14 h-14 bg-soft rounded-2xl flex items-center justify-center mb-6 text-emerald-600 font-extrabold">₹</div>
-            <h4 class="text-xl font-extrabold text-ink mb-2">Get rewards + 24/7 help</h4>
+          <!-- Step 3 -->
+          <div class="group p-8 bg-white rounded-3xl border border-slate-100 shadow-card hover:shadow-card2 hover:-translate-y-2 transition-all duration-300 relative reveal delay-300">
+            <div class="absolute -top-6 left-8 bg-ink text-white w-12 h-12 rounded-2xl flex items-center justify-center font-extrabold text-lg shadow-lg group-hover:scale-110 transition-transform">3</div>
+            <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8 text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-bold text-ink mb-3">Get rewards</h4>
             <p class="text-sub font-medium leading-relaxed">
-              Track task updates in the app. Need assistance? 24/7 help is available.
+              Once verified, your reward is added to your balance instantly. Withdraw or use it anytime.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- APP-LIKE UI (cleaner UX) -->
-    <section id="app-ui" class="py-16 bg-soft border-t border-line">
-      <div class="max-w-5xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <!-- Left: Copy -->
-          <div>
-            <h3 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">A clean task experience</h3>
-            <p class="text-sub text-lg font-medium leading-relaxed mb-6">
-              Rozsetu keeps tasks simple: clear steps, a smooth flow, and updates inside the app.
-              Support is available 24/7 whenever you need help.
+    <!-- FEATURES GRID -->
+    <section id="app-ui" class="py-24 bg-soft border-t border-line">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Left: Feature Grid -->
+          <div class="order-2 lg:order-1 reveal">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-slate-100">
+                <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h4 class="font-bold text-ink mb-2">Instant Updates</h4>
+                <p class="text-sm font-semibold text-sub">Real-time tracking of your task status.</p>
+              </div>
+              <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-slate-100">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 class="font-bold text-ink mb-2">Verified Tasks</h4>
+                <p class="text-sm font-semibold text-sub">All tasks are tested and verified for safety.</p>
+              </div>
+              <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition border border-slate-100 sm:col-span-2 flex items-center gap-5">
+                <div class="w-14 h-14 shrink-0 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-ink mb-1">24/7 In-App Support</h4>
+                  <p class="text-sm font-semibold text-sub">Stuck? Our support team is ready to help you instantly inside the app.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Copy -->
+          <div class="order-1 lg:order-2 reveal delay-100">
+            <h3 class="text-3xl md:text-4xl font-display font-extrabold text-ink mb-6">Designed for speed & clarity</h3>
+            <p class="text-sub text-lg font-medium leading-relaxed mb-8">
+              We removed the clutter. No complicated dashboards, just a clean list of tasks you can do today to earn real money.
             </p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xs font-bold">✓</div>
+                <span class="font-bold text-ink">Fast withdrawals & Payouts</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xs font-bold">✓</div>
+                <span class="font-bold text-ink">No hidden fees</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xs font-bold">✓</div>
+                <span class="font-bold text-ink">Works on all Android devices</span>
+              </li>
+            </ul>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="bg-white rounded-card border border-line p-5 shadow-card">
-                <div class="text-sm font-extrabold text-ink mb-1">Simple tasks</div>
-                <div class="text-sm font-bold text-sub">Easy to understand steps and clean layout.</div>
-              </div>
-              <div class="bg-white rounded-card border border-line p-5 shadow-card">
-                <div class="text-sm font-extrabold text-ink mb-1">Fast actions</div>
-                <div class="text-sm font-bold text-sub">Quick navigation and smooth task flow.</div>
-              </div>
-              <div class="bg-white rounded-card border border-line p-5 shadow-card">
-                <div class="text-sm font-extrabold text-ink mb-1">Reward clarity</div>
-                <div class="text-sm font-bold text-sub">Rewards shown clearly before you start.</div>
-              </div>
-              <div class="bg-white rounded-card border border-line p-5 shadow-card">
-                <div class="text-sm font-extrabold text-ink mb-1">24/7 help</div>
-                <div class="text-sm font-bold text-sub">In-app help available anytime.</div>
-              </div>
-            </div>
+            <a href="#download"
+               class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-500 transition group">
+               Learn about our rewards system
+               <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
           </div>
-
-          <!-- Right: App mock card -->
-          <div class="max-w-md mx-auto w-full">
-            <div class="bg-white rounded-card shadow-card border border-line p-4">
-              <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center gap-2">
-                  <div class="w-10 h-10 rounded-2xl overflow-hidden border border-line bg-white">
-                    <img id="ui-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                  <div>
-                    <div class="text-sm font-extrabold text-ink">Task Details</div>
-                    <div class="text-xs font-bold text-sub">Example preview</div>
-                  </div>
-                </div>
-                <div class="text-xs font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-pill">
-                  Live
-                </div>
-              </div>
-
-              <div class="bg-soft rounded-2xl p-3 border border-line">
-                <div class="flex items-start gap-3">
-                  <div class="w-11 h-11 rounded-2xl bg-white border border-line flex items-center justify-center font-extrabold text-brand-500">
-                    ₹
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <div class="text-[11px] font-extrabold text-sub uppercase">Reward</div>
-                    <div class="text-lg font-extrabold text-ink">₹50</div>
-                    <div class="text-xs font-bold text-sub">Complete the task to unlock reward.</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-4">
-                <div class="text-[11px] font-extrabold text-sub uppercase mb-2">Steps</div>
-                <div class="space-y-2">
-                  <div class="flex items-start gap-3">
-                    <div class="w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">1</div>
-                    <div class="text-sm font-bold text-ink/80">Open the task link.</div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <div class="w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">2</div>
-                    <div class="text-sm font-bold text-ink/80">Complete the required action.</div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <div class="w-7 h-7 rounded-pill bg-brand-500/10 text-brand-500 flex items-center justify-center text-xs font-extrabold mt-0.5">3</div>
-                    <div class="text-sm font-bold text-ink/80">Mark the task completed.</div>
-                  </div>
-                </div>
-              </div>
-
-              <a href="#download"
-                 class="mt-5 inline-flex w-full items-center justify-center py-3.5 bg-brand-500 rounded-2xl text-white font-extrabold hover:bg-brand-600 transition shadow-[0_14px_30px_rgba(46,91,255,.18)]">
-                Download & Start
-              </a>
-
-              <div class="mt-3 text-xs font-bold text-sub text-center">
-                Need help? 24/7 support is available inside the app.
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
     <!-- FINAL CTA -->
     <section id="download" class="py-24 bg-white relative overflow-hidden">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6 tracking-tight">
-          Complete tasks. Get rewards.
+      <!-- Decorative Circles -->
+      <div class="absolute -left-20 top-20 w-64 h-64 bg-brand-50 rounded-full blur-3xl"></div>
+      <div class="absolute -right-20 bottom-20 w-64 h-64 bg-purple-50 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 reveal">
+        <div class="inline-block p-3 rounded-2xl bg-brand-50 mb-6 text-brand-600">
+           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-display font-extrabold text-ink mb-8 tracking-tight">
+          Ready to earn?
         </h2>
-        <p class="text-lg text-sub mb-10 max-w-xl mx-auto font-medium">
-          Download Rozsetu, start with simple tasks, and track updates in one place.
-          24/7 help is available inside the app.
+        <p class="text-lg text-sub mb-10 max-w-lg mx-auto font-medium">
+          Join thousands of users completing simple tasks daily. Download the Rozsetu app and get started in minutes.
         </p>
 
         <a id="apk-link-cta" href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
-          class="inline-flex items-center justify-center px-10 py-5 text-base font-extrabold text-white bg-ink rounded-pill hover:bg-dark-900 transition shadow-xl">
-          Download Rozsetu App
+          class="inline-flex items-center justify-center gap-3 px-10 py-5 text-base font-bold text-white bg-ink rounded-2xl hover:bg-slate-800 transition shadow-2xl hover:shadow-xl transform hover:-translate-y-1">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download for Android
         </a>
 
-        <div class="mt-6 text-xs font-bold text-sub">
-          Rewards depend on successful task completion and verification.
+        <div class="mt-8 flex items-center justify-center gap-2 text-xs font-bold text-sub">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>Secure APK • No Viruses • Free to Use</span>
         </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-50 border-t border-line py-12">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-2">
-        <div class="w-7 h-7 rounded-xl overflow-hidden border border-line bg-white">
-          <img id="footer-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+  <footer class="bg-slate-50 border-t border-line pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="col-span-1 md:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg overflow-hidden bg-white border border-line">
+              <img id="footer-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover" />
+            </div>
+            <span class="font-display font-extrabold text-ink text-lg">Rozsetu</span>
+          </div>
+          <p class="text-sm font-semibold text-sub leading-relaxed">
+            The simplest task-based reward platform. Earn money in your spare time with complete transparency.
+          </p>
         </div>
-        <span class="font-extrabold text-ink">Rozsetu</span>
+
+        <!-- Links 1 -->
+        <div>
+          <h4 class="font-bold text-ink mb-4">Product</h4>
+          <ul class="space-y-2">
+            <li><a href="#how-it-works" class="text-sm font-semibold text-sub hover:text-brand-500 transition">How it works</a></li>
+            <li><a href="#features" class="text-sm font-semibold text-sub hover:text-brand-500 transition">Features</a></li>
+            <li><a href="#download" class="text-sm font-semibold text-sub hover:text-brand-500 transition">Download App</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 2 -->
+        <div>
+          <h4 class="font-bold text-ink mb-4">Support</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-sm font-semibold text-sub hover:text-brand-500 transition">Help Center</a></li>
+            <li><a href="#" class="text-sm font-semibold text-sub hover:text-brand-500 transition">Privacy Policy</a></li>
+            <li><a href="#" class="text-sm font-semibold text-sub hover:text-brand-500 transition">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="font-bold text-ink mb-4">Connect</h4>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-line flex items-center justify-center text-sub hover:text-brand-500 hover:border-brand-500 transition">
+               <!-- Twitter/X Icon -->
+               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-line flex items-center justify-center text-sub hover:text-brand-500 hover:border-brand-500 transition">
+               <!-- Instagram Icon -->
+               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.407-.06 3.808-.06h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="flex gap-8 text-sm text-sub font-bold">
-        <a href="#" class="hover:text-ink transition">Privacy Policy</a>
-        <span class="opacity-50">•</span>
-        <a href="#" class="hover:text-ink transition">Terms</a>
-        <span class="opacity-50">•</span>
-        <a href="#" class="hover:text-ink transition">Support</a>
-      </div>
-
-      <div class="text-sm text-gray-400 font-bold text-center">
-        &copy; 2026 Rozsetu. All rights reserved.
+      <div class="border-t border-line pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm text-sub font-semibold">
+          &copy; 2026 Rozsetu. All rights reserved.
+        </div>
+        <div class="text-xs font-semibold text-slate-400">
+          Made for productivity.
+        </div>
       </div>
     </div>
   </footer>
@@ -398,15 +544,49 @@
     const LOGO_URL = window.ROZSETU_LOGO_URL;
 
     function injectLogos() {
-      ["nav-logo", "hero-card-logo", "ui-logo", "footer-logo"].forEach((id) => {
+      const ids = ["nav-logo", "hero-card-logo", "footer-logo"];
+      ids.forEach((id) => {
         const el = document.getElementById(id);
         if (el) el.src = LOGO_URL;
       });
     }
 
-    window.onload = () => {
+    // Mobile Menu Toggle
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
+    });
+
+    // Scroll Reveal Animation using IntersectionObserver
+    document.addEventListener('DOMContentLoaded', () => {
       injectLogos();
-    };
+
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, observerOptions);
+
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach(el => observer.observe(el));
+    });
   </script>
 
 </body>
