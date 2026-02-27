@@ -3,95 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redirecting...</title>
+<title>Opening...</title>
 
 <style>
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    margin:0;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    margin:0;
     background:#0B0B10;
     color:white;
-    text-align:center;
-}
-.loader{
-    border:4px solid #333;
-    border-top:4px solid #4CAF50;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    animation:spin 1s linear infinite;
-    margin-bottom:20px;
-}
-@keyframes spin{
-    0%{transform:rotate(0deg)}
-    100%{transform:rotate(360deg)}
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 }
 </style>
 </head>
 
 <body>
-
-<div>
-    <div class="loader"></div>
-    <p>Opening App...</p>
-</div>
+<p>Opening Rozsetu...</p>
 
 <script>
+
 /* =========================
    CONFIG
 ========================= */
 
-// 👉 APP NOT INSTALLED → redirect here
-const fallbackUrl = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
-// OR: https://rozsetu.com/download
+// 👉 App not installed fallback
+const fallbackUrl = "https://rozsetu.com";
 
 /* =========================
-   GET PARAMS
+   PARAMS
 ========================= */
 
-const params = new URLSearchParams(window.location.search);
-const eventId = params.get("e");
-const token = params.get("t");
+const params = new URLSearchParams(location.search);
+const e = params.get("e");
+const t = params.get("t");
 
-if (!eventId || !token) {
-    window.location.replace(fallbackUrl);
+if (!e || !t) {
+    location.replace(fallbackUrl);
 }
 
 /* =========================
-   BUILD DEEP LINK
+   DEEP LINK
 ========================= */
 
-const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
+const deepLink = `rozsetu://lifafa?e=${e}&t=${t}`;
 
 /* =========================
-   SMART APP OPEN DETECTION
+   INSTANT OPEN METHOD
 ========================= */
 
-let appOpened = false;
+let opened = false;
 
-// If app opens → browser goes background
+// detect app open
 document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-        appOpened = true;
-    }
+    if (document.hidden) opened = true;
 });
 
-// Try opening app
-window.location.href = deepLink;
+/*
+   MAGIC PART:
+   iframe method = fastest + most reliable
+*/
+const iframe = document.createElement("iframe");
+iframe.style.display = "none";
+iframe.src = deepLink;
+document.body.appendChild(iframe);
+
+/* backup open (some browsers block iframe) */
+setTimeout(() => {
+    location.href = deepLink;
+}, 100);
 
 /* =========================
-   FALLBACK (APP NOT INSTALLED)
+   FALLBACK
 ========================= */
 
 setTimeout(() => {
-    if (!appOpened) {
-        window.location.replace(fallbackUrl);
+    if (!opened) {
+        location.replace(fallbackUrl);
     }
-}, 2200); // best timing (2.2s)
+}, 1800);
 
 </script>
 
