@@ -7,98 +7,81 @@
 
 <style>
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    margin:0;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    margin:0;
     background:#0B0B10;
     color:white;
-    text-align:center;
-}
-.loader{
-    border:4px solid #333;
-    border-top:4px solid #4CAF50;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    animation:spin 1s linear infinite;
-    margin:auto;
-    margin-bottom:20px;
-}
-@keyframes spin{
-    0%{transform:rotate(0deg)}
-    100%{transform:rotate(360deg)}
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 }
 </style>
 </head>
 
 <body>
-
-<div>
-    <div class="loader"></div>
-    <p>Opening App...</p>
-</div>
+<p>Opening Rozsetu App...</p>
 
 <script>
 
 /* =========================
-   CONFIG
+   PLAY STORE FALLBACK
 ========================= */
 
-const landingPage = "https://rozsetu.com"; // fallback page
+const fallbackUrl =
+"https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
 
 /* =========================
-   READ URL PARAMS
+   GET PARAMS
 ========================= */
 
-const params = new URLSearchParams(window.location.search);
-const eventId = params.get("e");
-const token = params.get("t");
+const params = new URLSearchParams(location.search);
+const e = params.get("e");
+const t = params.get("t");
 
-/* =========================
-   VALIDATE PARAMS
-========================= */
-
-if (!eventId || !token) {
-    window.location.href = landingPage;
+if (!e || !t) {
+    location.replace(fallbackUrl);
 }
 
 /* =========================
-   BUILD DEEP LINK
+   DEEP LINK
 ========================= */
 
-const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
+const deepLink = `rozsetu://lifafa?e=${e}&t=${t}`;
 
 /* =========================
-   DETECT APP OPEN
+   INSTANT APP OPEN
 ========================= */
 
 let appOpened = false;
 
-// When app opens → browser goes background
-document.addEventListener("visibilitychange", function () {
-    if (document.hidden) {
-        appOpened = true;
-    }
+// detect app open
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) appOpened = true;
 });
 
+// FASTEST METHOD → iframe launch
+const iframe = document.createElement("iframe");
+iframe.style.display = "none";
+iframe.src = deepLink;
+document.body.appendChild(iframe);
+
+// backup open (Chrome protection bypass)
+setTimeout(() => {
+    location.href = deepLink;
+}, 100);
+
 /* =========================
-   TRY OPEN APP
+   FALLBACK → PLAY STORE
 ========================= */
 
-// IMPORTANT: use href (NOT replace)
-window.location.href = deepLink;
-
-/* =========================
-   FALLBACK IF APP NOT INSTALLED
-========================= */
-
-setTimeout(function () {
+setTimeout(() => {
     if (!appOpened) {
-        window.location.href = landingPage;
+        location.replace(fallbackUrl);
     }
-}, 2500);
+}, 1800);
 
 </script>
+
+</body>
+</html>
