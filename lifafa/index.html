@@ -3,24 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opening...</title>
+<title>Opening Rozsetu...</title>
 
 <style>
 body{
-    margin:0;
-    height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     display:flex;
     justify-content:center;
     align-items:center;
+    height:100vh;
+    margin:0;
     background:#0B0B10;
     color:white;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+    text-align:center;
+}
+.loader{
+    border:4px solid #333;
+    border-top:4px solid #4CAF50;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    animation:spin 1s linear infinite;
+    margin:auto;
+    margin-bottom:20px;
+}
+@keyframes spin{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
 }
 </style>
 </head>
 
 <body>
-<p>Opening Rozsetu...</p>
+
+<div>
+    <div class="loader"></div>
+    <p>Opening App...</p>
+</div>
 
 <script>
 
@@ -28,63 +47,58 @@ body{
    CONFIG
 ========================= */
 
-// 👉 App not installed fallback
-const fallbackUrl = "https://rozsetu.com";
+const landingPage = "https://rozsetu.com"; // fallback page
 
 /* =========================
-   PARAMS
+   READ URL PARAMS
 ========================= */
 
-const params = new URLSearchParams(location.search);
-const e = params.get("e");
-const t = params.get("t");
+const params = new URLSearchParams(window.location.search);
+const eventId = params.get("e");
+const token = params.get("t");
 
-if (!e || !t) {
-    location.replace(fallbackUrl);
+/* =========================
+   VALIDATE PARAMS
+========================= */
+
+if (!eventId || !token) {
+    window.location.href = landingPage;
 }
 
 /* =========================
-   DEEP LINK
+   BUILD DEEP LINK
 ========================= */
 
-const deepLink = `rozsetu://lifafa?e=${e}&t=${t}`;
+const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
 
 /* =========================
-   INSTANT OPEN METHOD
+   DETECT APP OPEN
 ========================= */
 
-let opened = false;
+let appOpened = false;
 
-// detect app open
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden) opened = true;
+// When app opens → browser goes background
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        appOpened = true;
+    }
 });
 
-/*
-   MAGIC PART:
-   iframe method = fastest + most reliable
-*/
-const iframe = document.createElement("iframe");
-iframe.style.display = "none";
-iframe.src = deepLink;
-document.body.appendChild(iframe);
-
-/* backup open (some browsers block iframe) */
-setTimeout(() => {
-    location.href = deepLink;
-}, 100);
-
 /* =========================
-   FALLBACK
+   TRY OPEN APP
 ========================= */
 
-setTimeout(() => {
-    if (!opened) {
-        location.replace(fallbackUrl);
+// IMPORTANT: use href (NOT replace)
+window.location.href = deepLink;
+
+/* =========================
+   FALLBACK IF APP NOT INSTALLED
+========================= */
+
+setTimeout(function () {
+    if (!appOpened) {
+        window.location.href = landingPage;
     }
-}, 1800);
+}, 2500);
 
 </script>
-
-</body>
-</html>
