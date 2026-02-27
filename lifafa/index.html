@@ -1,98 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opening Rozsetu...</title>
-
-<style>
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#0B0B10;
-    color:white;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-}
-</style>
-</head>
-
-<body>
-<p>Opening Rozsetu App...</p>
-
-<script>
-
-/* =========================
-   CONFIG
-========================= */
-
-const PLAY_STORE =
-"https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
-
-/* =========================
-   PARAMS
-========================= */
-
-const params = new URLSearchParams(location.search);
-const e = params.get("e");
-const t = params.get("t");
-
-if (!e || !t) {
-    location.replace(PLAY_STORE);
-}
-
-/* =========================
-   DEEP LINK
-========================= */
-
-const deepLink = `rozsetu://lifafa?e=${e}&t=${t}`;
-
-let redirected = false;
-
-/* =========================
-   METHOD 1 — iframe open
-========================= */
-
-const iframe = document.createElement("iframe");
-iframe.style.display = "none";
-iframe.src = deepLink;
-document.body.appendChild(iframe);
-
-/* =========================
-   METHOD 2 — direct open backup
-========================= */
-
-setTimeout(() => {
-    window.location.href = deepLink;
-}, 300);
-
-/* =========================
-   METHOD 3 — HARD FALLBACK
-   (never gets stuck)
-========================= */
-
-setTimeout(() => {
-    if (!redirected) {
-        redirected = true;
-        window.location.href = PLAY_STORE;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening Rozsetu...</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0B0B10;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
     }
-}, 2000);
+  </style>
+</head>
+<body>
+  <p>Opening Rozsetu App...</p>
 
-/* =========================
-   EXTRA SAFETY
-========================= */
+  <script>
+    const PLAY_STORE = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
+    const PACKAGE = "in.rojsetu.taskapp";
 
-window.addEventListener("pagehide", () => {
-    redirected = true;
-});
+    const params = new URLSearchParams(location.search);
+    const e = params.get("e");
+    const t = params.get("t");
 
-window.addEventListener("blur", () => {
-    redirected = true;
-});
+    // If params missing -> go Play Store (NOT website)
+    if (!e || !t) {
+      location.replace(PLAY_STORE);
+    }
 
-</script>
+    const ua = navigator.userAgent || "";
+    const isAndroid = /Android/i.test(ua);
 
+    if (isAndroid) {
+      // ✅ BEST: intent:// auto opens app, otherwise auto opens Play Store
+      const intentUrl =
+        `intent://lifafa?e=${encodeURIComponent(e)}&t=${encodeURIComponent(t)}` +
+        `#Intent;scheme=rozsetu;package=${PACKAGE};` +
+        `S.browser_fallback_url=${encodeURIComponent(PLAY_STORE)};end`;
+
+      location.href = intentUrl;
+    } else {
+      // iOS / others: try deep link, then fallback Play Store (or you can use App Store link if you have)
+      const deepLink = `rozsetu://lifafa?e=${encodeURIComponent(e)}&t=${encodeURIComponent(t)}`;
+
+      let done = false;
+      const goStore = () => {
+        if (done) return;
+        done = true;
+        location.replace(PLAY_STORE);
+      };
+
+      // Try open
+      location.href = deepLink;
+
+      // Fallback after 1.5s
+      setTimeout(goStore, 1500);
+    }
+  </script>
 </body>
 </html>
