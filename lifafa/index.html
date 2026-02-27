@@ -25,14 +25,14 @@ body{
 <script>
 
 /* =========================
-   PLAY STORE FALLBACK
+   CONFIG
 ========================= */
 
-const fallbackUrl =
+const PLAY_STORE =
 "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
 
 /* =========================
-   GET PARAMS
+   PARAMS
 ========================= */
 
 const params = new URLSearchParams(location.search);
@@ -40,7 +40,7 @@ const e = params.get("e");
 const t = params.get("t");
 
 if (!e || !t) {
-    location.replace(fallbackUrl);
+    location.replace(PLAY_STORE);
 }
 
 /* =========================
@@ -49,37 +49,48 @@ if (!e || !t) {
 
 const deepLink = `rozsetu://lifafa?e=${e}&t=${t}`;
 
+let redirected = false;
+
 /* =========================
-   INSTANT APP OPEN
+   METHOD 1 — iframe open
 ========================= */
 
-let appOpened = false;
-
-// detect app open
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden) appOpened = true;
-});
-
-// FASTEST METHOD → iframe launch
 const iframe = document.createElement("iframe");
 iframe.style.display = "none";
 iframe.src = deepLink;
 document.body.appendChild(iframe);
 
-// backup open (Chrome protection bypass)
-setTimeout(() => {
-    location.href = deepLink;
-}, 100);
-
 /* =========================
-   FALLBACK → PLAY STORE
+   METHOD 2 — direct open backup
 ========================= */
 
 setTimeout(() => {
-    if (!appOpened) {
-        location.replace(fallbackUrl);
+    window.location.href = deepLink;
+}, 300);
+
+/* =========================
+   METHOD 3 — HARD FALLBACK
+   (never gets stuck)
+========================= */
+
+setTimeout(() => {
+    if (!redirected) {
+        redirected = true;
+        window.location.href = PLAY_STORE;
     }
-}, 1800);
+}, 2000);
+
+/* =========================
+   EXTRA SAFETY
+========================= */
+
+window.addEventListener("pagehide", () => {
+    redirected = true;
+});
+
+window.addEventListener("blur", () => {
+    redirected = true;
+});
 
 </script>
 
