@@ -1,63 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #0B0B10;
-            color: white;
-            text-align: center;
-        }
-        .loader {
-            border: 4px solid #333;
-            border-top: 4px solid #4CAF50;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecting...</title>
+
+<style>
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    background:#0B0B10;
+    color:white;
+    text-align:center;
+}
+.loader{
+    border:4px solid #333;
+    border-top:4px solid #4CAF50;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    animation:spin 1s linear infinite;
+    margin-bottom:20px;
+}
+@keyframes spin{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+</style>
 </head>
+
 <body>
 
+<div>
     <div class="loader"></div>
     <p>Opening App...</p>
+</div>
 
-    <script>
-        // 1. URL se Parameters nikalo
-        const params = new URLSearchParams(window.location.search);
-        const eventId = params.get('e');
-        const token = params.get('t');
+<script>
+/* =========================
+   CONFIG
+========================= */
 
-        // 2. Landing Page ka URL
-        const landingPage = "https://rozsetu.com"; 
+// 👉 APP NOT INSTALLED → redirect here
+const fallbackUrl = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
+// OR: https://rozsetu.com/download
 
-        if (eventId && token) {
-            // Deep Link
-            const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
-            
-            // 3. App Open karne ki koshish
-            window.location.replace(deepLink);
+/* =========================
+   GET PARAMS
+========================= */
 
-            // 4. FALLBACK: Agar 2.5 sec mein app nahi khula (matlab app install nahi hai),
-            // toh Landing Page par redirect kardo.
-            setTimeout(() => {
-                window.location.replace(landingPage);
-            }, 2500);
-        } else {
-            // Agar link galat hai toh seedha landing page par bhejo
-            window.location.replace(landingPage);
-        }
-    </script>
+const params = new URLSearchParams(window.location.search);
+const eventId = params.get("e");
+const token = params.get("t");
+
+if (!eventId || !token) {
+    window.location.replace(fallbackUrl);
+}
+
+/* =========================
+   BUILD DEEP LINK
+========================= */
+
+const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
+
+/* =========================
+   SMART APP OPEN DETECTION
+========================= */
+
+let appOpened = false;
+
+// If app opens → browser goes background
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        appOpened = true;
+    }
+});
+
+// Try opening app
+window.location.href = deepLink;
+
+/* =========================
+   FALLBACK (APP NOT INSTALLED)
+========================= */
+
+setTimeout(() => {
+    if (!appOpened) {
+        window.location.replace(fallbackUrl);
+    }
+}, 2200); // best timing (2.2s)
+
+</script>
+
 </body>
 </html>
