@@ -1,76 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opening Rozsetu...</title>
-
-<style>
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
-    background:#0B0B10;
-    color:white;
-    text-align:center;
-}
-
-.loader{
-    border:4px solid #333;
-    border-top:4px solid #4CAF50;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    animation:spin 1s linear infinite;
-    margin-bottom:20px;
-}
-
-@keyframes spin{
-0%{transform:rotate(0deg);}
-100%{transform:rotate(360deg);}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening Rozsetu...</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #0B0B10;
+      color: white;
+      text-align: center;
+    }
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .loader {
+      border: 4px solid #333;
+      border-top: 4px solid #4CAF50;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="loader"></div>
+    <p>Opening App...</p>
+  </div>
 
-<div>
-<div class="loader"></div>
-<p>Opening App...</p>
-</div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const eventId = params.get("e");
+    const token = params.get("t");
 
-<script>
+    const playStore = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
 
-// URL parameters
-const params = new URLSearchParams(window.location.search);
-const eventId = params.get('e');
-const token = params.get('t');
+    if (!eventId || !token) {
+      window.location.href = playStore;
+    } else {
+      const deepLink = `rozsetu://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}`;
 
-// Play Store link
-const playStore = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
+      const start = Date.now();
 
-if(eventId && token){
+      window.location.href = deepLink;
 
-    const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
-
-    // Try to open app
-    window.location.replace(deepLink);
-
-    // Fallback to Play Store
-    setTimeout(()=>{
-        window.location.replace(playStore);
-    },2000);
-
-}else{
-
-    window.location.replace(playStore);
-
-}
-
-</script>
-
+      setTimeout(() => {
+        const end = Date.now();
+        if (end - start < 3000) {
+          window.location.href = playStore;
+        }
+      }, 1800);
+    }
+  </script>
 </body>
 </html>
