@@ -1,96 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opening Rozsetu...</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #0B0B10;
-      color: #fff;
-      text-align: center;
-    }
-    .wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .loader {
-      border: 4px solid #333;
-      border-top: 4px solid #4CAF50;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening Rozsetu...</title>
+
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #0B0B10;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+}
+
+.loader {
+    border: 4px solid #333;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="loader"></div>
-    <p>Opening App...</p>
-  </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const eventId = params.get("e");
-    const token = params.get("t");
+<div class="loader"></div>
+<p>Opening Rozsetu App...</p>
 
-    const packageName = "in.rojsetu.taskapp";
-    const marketUrl = `market://details?id=${packageName}`;
-    const webUrl = `https://play.google.com/store/apps/details?id=${packageName}`;
+<script>
 
-    let appOpened = false;
+const PLAY_STORE =
+"https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
 
-    function markHidden() {
-      appOpened = true;
+const params = new URLSearchParams(window.location.search);
+const eventId = params.get("e");
+const token = params.get("t");
+
+if (!eventId || !token) {
+    window.location.replace(PLAY_STORE);
+}
+
+const deepLink = `rozsetu://lifafa?e=${eventId}&t=${token}`;
+
+let opened = false;
+
+// detect if app opened
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) opened = true;
+});
+
+window.addEventListener("blur", () => {
+    opened = true;
+});
+
+window.addEventListener("pagehide", () => {
+    opened = true;
+});
+
+// try open app
+window.location.href = deepLink;
+
+// fallback to playstore
+setTimeout(() => {
+    if (!opened) {
+        window.location.replace(PLAY_STORE);
     }
+}, 1800);
 
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) appOpened = true;
-    });
+</script>
 
-    window.addEventListener("pagehide", markHidden);
-    window.addEventListener("blur", () => {
-      appOpened = true;
-    });
-
-    function openStore() {
-      if (appOpened) return;
-
-      window.location.href = marketUrl;
-
-      setTimeout(() => {
-        if (!appOpened) {
-          window.location.href = webUrl;
-        }
-      }, 1200);
-    }
-
-    if (!eventId || !token) {
-      openStore();
-    } else {
-      const intentUrl =
-        `intent://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}` +
-        `#Intent;scheme=rozsetu;package=${packageName};end`;
-
-      window.location.href = intentUrl;
-
-      setTimeout(() => {
-        openStore();
-      }, 1500);
-    }
-  </script>
 </body>
 </html>
