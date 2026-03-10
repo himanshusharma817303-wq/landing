@@ -1,42 +1,57 @@
-<script>
-const PLAY_STORE_WEB = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
-const PLAY_STORE_APP = "market://details?id=in.rojsetu.taskapp";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening Rozsetu...</title>
 
-const params = new URLSearchParams(window.location.search);
-const eventId = params.get("e");
-const token = params.get("t");
-
-if (!eventId || !token) {
-  window.location.href = PLAY_STORE_APP;
-
-  setTimeout(() => {
-    window.location.href = PLAY_STORE_WEB;
-  }, 1200);
+<style>
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    background:#0B0B10;
+    color:white;
 }
+</style>
+</head>
 
-const deepLink = `rozsetu://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}`;
+<body>
+<p>Opening Rozsetu App...</p>
+
+<script>
+
+const PLAYSTORE_APP = "market://details?id=in.rojsetu.taskapp";
+
+const params = new URLSearchParams(location.search);
+const e = params.get("e");
+const t = params.get("t");
+
+const deepLink = `rozsetu://lifafa?e=${e}&t=${t}`;
 
 let opened = false;
 
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden) opened = true;
+    if (document.hidden) opened = true;
 });
-window.addEventListener("blur", () => opened = true);
-window.addEventListener("pagehide", () => opened = true);
 
-// app open try
+window.addEventListener("blur", () => {
+    opened = true;
+});
+
 window.location.href = deepLink;
 
-// fallback: first Play Store app, then web
+// fallback → DIRECT PLAYSTORE APP
 setTimeout(() => {
-  if (!opened) {
-    window.location.href = PLAY_STORE_APP;
+    if (!opened) {
+        window.location.href = PLAYSTORE_APP;
+    }
+}, 1500);
 
-    setTimeout(() => {
-      if (!opened) {
-        window.location.href = PLAY_STORE_WEB;
-      }
-    }, 1200);
-  }
-}, 1600);
 </script>
+
+</body>
+</html>
