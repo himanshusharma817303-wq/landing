@@ -12,8 +12,8 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #0B0B10;
-      color: white;
+      background: #0B0B10;
+      color: #fff;
       text-align: center;
     }
     .wrap {
@@ -47,22 +47,21 @@
     const eventId = params.get("e");
     const token = params.get("t");
 
-    const playStore = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
+    const playStoreUrl = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
+    const packageName = "in.rojsetu.taskapp";
 
     if (!eventId || !token) {
-      window.location.href = playStore;
+      window.location.href = playStoreUrl;
     } else {
-      const deepLink = `rozsetu://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}`;
+      const encodedPlayStore = encodeURIComponent(playStoreUrl);
+      const intentUrl =
+        `intent://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}` +
+        `#Intent;scheme=rozsetu;package=${packageName};S.browser_fallback_url=${encodedPlayStore};end`;
 
-      const start = Date.now();
-
-      window.location.href = deepLink;
+      window.location.href = intentUrl;
 
       setTimeout(() => {
-        const end = Date.now();
-        if (end - start < 3000) {
-          window.location.href = playStore;
-        }
+        window.location.href = playStoreUrl;
       }, 1800);
     }
   </script>
