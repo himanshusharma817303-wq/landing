@@ -48,32 +48,48 @@
     const token = params.get("t");
 
     const packageName = "in.rojsetu.taskapp";
-    const playStoreApp = `market://details?id=${packageName}`;
-    const playStoreWeb = `https://play.google.com/store/apps/details?id=${packageName}`;
+    const marketUrl = `market://details?id=${packageName}`;
+    const webUrl = `https://play.google.com/store/apps/details?id=${packageName}`;
 
-    if (!eventId || !token) {
-      window.location.href = playStoreApp;
+    let appOpened = false;
+
+    function markHidden() {
+      appOpened = true;
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) appOpened = true;
+    });
+
+    window.addEventListener("pagehide", markHidden);
+    window.addEventListener("blur", () => {
+      appOpened = true;
+    });
+
+    function openStore() {
+      if (appOpened) return;
+
+      window.location.href = marketUrl;
 
       setTimeout(() => {
-        window.location.href = playStoreWeb;
+        if (!appOpened) {
+          window.location.href = webUrl;
+        }
       }, 1200);
+    }
+
+    if (!eventId || !token) {
+      openStore();
     } else {
       const intentUrl =
         `intent://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}` +
         `#Intent;scheme=rozsetu;package=${packageName};end`;
 
-      // App open try
       window.location.href = intentUrl;
 
-      // App nahi hui toh Play Store app
       setTimeout(() => {
-        window.location.href = playStoreApp;
-
-        // Agar market:// bhi fail ho toh web Play Store
-        setTimeout(() => {
-          window.location.href = playStoreWeb;
-        }, 1200);
-      }, 1800);
+        openStore();
+      }, 1500);
     }
   </script>
 </body>
