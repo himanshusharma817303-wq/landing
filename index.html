@@ -2,281 +2,356 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <!-- Android Responsive Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
-  <!-- ✅ HIGH-END SEO TAGS -->
-  <title>Rozsetu — Best Task to Earn App | Make Money Online Instantly</title>
-  <meta name="description" content="Download Rozsetu, the best earning app for Android. Complete simple tasks like surveys, account openings, and more to earn money online. Instant withdrawals & 24/7 support." />
-  <meta name="keywords" content="Task to Earn, Earn Money Online, Make Money from Home, Best Earning App 2024, Rozsetu, Daily Rewards, Android Earning App, Instant Paytm Withdrawal" />
-  
-  <link rel="canonical" href="https://himanshusharma817303-wq.github.io/landing/" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="theme-color" content="#0B1220" />
+  <title>Rozsetu — Earn Rewards with Simple Tasks</title>
+  <meta name="description" content="Install Rozsetu from Google Play. Complete simple tasks, earn rewards, and use a trusted Android experience." />
+  <meta name="keywords" content="Rozsetu, Google Play, earning app, task app, Android rewards app" />
 
-  <!-- ✅ OPEN GRAPH (Social Media) -->
+  <link rel="canonical" href="https://himanshusharma817303-wq.github.io/landing/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#ffffff" />
+
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Rozsetu — Best Task to Earn App" />
-  <meta property="og:description" content="Complete simple tasks and earn real money. Trusted by 10,000+ users. Download now!" />
+  <meta property="og:title" content="Rozsetu — Earn Rewards with Simple Tasks" />
+  <meta property="og:description" content="Install Rozsetu from Google Play and start with simple tasks." />
   <meta property="og:url" content="https://himanshusharma817303-wq.github.io/landing/" />
   <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
 
-  <!-- ✅ LOGO URL -->
   <script>
     window.ROZSETU_LOGO_URL =
       "https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573";
+    window.ROZSETU_PLAYSTORE_URL =
+      "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
   </script>
 
-  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="https://z-cdn-media.chatglm.cn/files/c238b0b2-1f47-43ce-a4db-38a9177f3303.png?auth_key=1870469180-2109a84422f0414398cab64c4d23bce2-0-082482ee263caf31efcbbcb464aa8573" />
 
-  <!-- ✅ Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- ✅ Tailwind Config -->
   <script>
     tailwind = {
       config: {
         theme: {
           fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            display: ['Karla', 'ui-sans-serif', 'system-ui', 'sans-serif']
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
           },
           extend: {
             colors: {
-              ink: '#0B1220',
-              sub: '#64748b',
-              line: '#e5e7eb',
-              soft: '#f8fafc',
-              brand: { 500: '#2E5BFF', 600: '#2148E8', 700: '#1e40af' },
-              dark: { 900: '#0f172a', 800: '#111827' }
+              ink: '#202124',
+              sub: '#5f6368',
+              line: '#e8eaed',
+              soft: '#f8f9fa',
+              play: '#01875f',
+              playDark: '#017153',
+              blue: '#1a73e8'
             },
-            borderRadius: { card: '20px', pill: '9999px' },
+            borderRadius: {
+              card: '24px',
+              pill: '9999px'
+            },
             boxShadow: {
-              card: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-              glow: '0 0 20px rgba(46, 91, 255, 0.3)'
-            },
-            animation: {
-              'float': 'float 6s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-15px)' },
-              }
+              card: '0 8px 24px rgba(60,64,67,.12)',
+              hover: '0 12px 28px rgba(60,64,67,.18)'
             }
           }
         }
       }
     };
   </script>
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body { 
-      background-color: #f8fafc; 
-      color: #0B1220; 
-      -webkit-tap-highlight-color: transparent; 
+    body {
+      background: #fff;
+      color: #202124;
+      -webkit-tap-highlight-color: transparent;
     }
+
     html { scroll-behavior: smooth; }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f3f4; }
+    ::-webkit-scrollbar-thumb { background: #c7cdd1; border-radius: 999px; }
 
-    /* Hero Background */
-    .bg-hero {
-      background-color: #0B1220;
-      background-image: 
-        radial-gradient(circle at top right, rgba(46,91,255,0.2), transparent 40%),
-        linear-gradient(to bottom, #0B1220, #0f172a);
-    }
-
-    /* Glass Nav */
     .glass-nav {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e8eaed;
     }
 
-    /* Animation */
     .fade-up {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
     }
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Modal Styles */
     .modal-backdrop {
-      background-color: rgba(0, 0, 0, 0.6);
+      background: rgba(32,33,36,.54);
       backdrop-filter: blur(4px);
+    }
+
+    .play-gradient {
+      background:
+        radial-gradient(circle at top right, rgba(26,115,232,.08), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(1,135,95,.08), transparent 35%),
+        #ffffff;
+    }
+
+    .play-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 9999px;
+      padding: 8px 14px;
+      background: #e6f4ea;
+      color: #137333;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid #cee7d3;
+    }
+
+    .play-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #01875f;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 9999px;
+      transition: .2s ease;
+      box-shadow: 0 6px 18px rgba(1,135,95,.22);
+    }
+    .play-btn:hover {
+      background: #017153;
+      transform: translateY(-1px);
+    }
+
+    .play-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #fff;
+      color: #1a73e8;
+      font-weight: 700;
+      border: 1px solid #d2e3fc;
+      border-radius: 9999px;
+      transition: .2s ease;
+    }
+    .play-btn-secondary:hover {
+      background: #f8fbff;
+    }
+
+    .play-chip {
+      border: 1px solid #e8eaed;
+      background: #fff;
+      border-radius: 9999px;
+      padding: 9px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #3c4043;
+    }
+
+    .phone-shell {
+      background: #202124;
+      border: 6px solid #202124;
+      border-radius: 34px;
+      box-shadow: 0 24px 60px rgba(32,33,36,.2);
+      overflow: hidden;
+      aspect-ratio: 9 / 19;
+      position: relative;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 22px;
+      background: #202124;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      z-index: 10;
     }
   </style>
 
-  <!-- ✅ SCHEMA.ORG (SEO) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Rozsetu",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Android",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "INR"
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Rozsetu",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Android",
+    "installUrl":"https://play.google.com/store/apps/details?id=in.rojsetu.taskapp",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"INR"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250"
-    },
-    "description": "Rozsetu is the best task to earn app. Complete simple tasks like surveys and referrals to earn money online instantly."
+    "description":"Rozsetu is an Android app where users complete simple tasks and earn rewards."
   }
   </script>
 
-  <!-- ✅ GOOGLE ADS TAG (Global) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17937912851"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'AW-17937912851');
   </script>
-  
 </head>
 
 <body class="overflow-x-hidden font-sans antialiased">
 
-  <!-- NAVIGATION (GLITCH FIX: Z-Index & Transitions) -->
   <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-14">
-        <!-- Logo -->
-        <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-          <div class="w-8 h-8 rounded-lg overflow-hidden bg-white border border-gray-200 shadow-sm">
-            <img id="nav-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover"/>
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+          <div class="w-9 h-9 rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm">
+            <img id="nav-logo" src="" alt="Rozsetu Logo" class="w-full h-full object-cover">
           </div>
           <div class="leading-tight">
-            <div class="font-display font-extrabold text-base text-ink">Rozsetu</div>
+            <div class="font-extrabold text-base text-ink">Rozsetu</div>
+            <div class="text-[11px] font-semibold text-sub">On Google Play</div>
           </div>
         </div>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center gap-4">
-          <a href="#how-it-works" class="text-xs font-bold text-sub hover:text-brand-600 transition">How it works</a>
-          <a href="#features" class="text-xs font-bold text-sub hover:text-brand-600 transition">Features</a>
-          <!-- Open Modal for Terms -->
-          <button onclick="openModal('terms-modal')" class="text-xs font-bold text-sub hover:text-brand-600 transition cursor-pointer">Terms</button>
-          <!-- Open Modal for Privacy -->
-          <button onclick="openModal('privacy-modal')" class="text-xs font-bold text-sub hover:text-brand-600 transition cursor-pointer">Privacy</button>
-          
-          <a href="#download"
-             class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-brand-600 rounded-full hover:bg-brand-700 transition shadow-lg">
-             Download App
+        <div class="hidden md:flex items-center gap-5">
+          <a href="#how-it-works" class="text-sm font-semibold text-sub hover:text-blue transition">How it works</a>
+          <a href="#features" class="text-sm font-semibold text-sub hover:text-blue transition">Features</a>
+          <button onclick="openModal('terms-modal')" class="text-sm font-semibold text-sub hover:text-blue transition">Terms</button>
+          <button onclick="openModal('privacy-modal')" class="text-sm font-semibold text-sub hover:text-blue transition">Privacy</button>
+
+          <a href="https://play.google.com/store/apps/details?id=in.rojsetu.taskapp" target="_blank" rel="noopener"
+             id="playstore-nav-link"
+             class="play-btn px-5 py-2.5 text-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 20.5V3.5c0-.41.47-.65.8-.4l10.1 7.4c.28.2.28.61 0 .81L3.8 20.9c-.33.24-.8.01-.8-.4Zm12.5-8.54 2.33-1.71c.25-.18.59-.18.84 0l2.85 2.09c.32.23.32.71 0 .94l-2.85 2.09c-.25.18-.59.18-.84 0l-2.33-1.71a.58.58 0 0 1 0-.7Z"/>
+            </svg>
+            Install
           </a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-ink focus:outline-none rounded-lg hover:bg-gray-100 transition z-[70] relative">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-ink rounded-xl hover:bg-gray-100 transition z-[70] relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Menu Overlay (Fixed to prevent glitch) -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
       <div class="flex items-center justify-between p-4 border-b border-gray-100">
-        <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-lg overflow-hidden bg-gray-100">
-             <img id="mobile-nav-logo" src="" class="w-full h-full object-cover"/>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl overflow-hidden bg-gray-100">
+            <img id="mobile-nav-logo" src="" class="w-full h-full object-cover" alt="Rozsetu Logo">
           </div>
-          <span class="font-display font-bold text-lg text-ink">Rozsetu</span>
+          <span class="font-bold text-lg text-ink">Rozsetu</span>
         </div>
         <button id="close-menu-btn" class="p-2 text-gray-500 hover:text-red-500 transition">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
         </button>
       </div>
-      
+
       <div class="flex-1 overflow-y-auto p-5 space-y-4">
-        <a href="#how-it-works" onclick="toggleMenu()" class="block text-lg font-bold text-gray-800 hover:text-brand-600 py-2 border-b border-gray-50">How it works</a>
-        <a href="#features" onclick="toggleMenu()" class="block text-lg font-bold text-gray-800 hover:text-brand-600 py-2 border-b border-gray-50">Features</a>
-        <!-- Mobile Modal Links -->
-        <button onclick="toggleMenu(); openModal('terms-modal')" class="block text-left text-lg font-bold text-gray-800 hover:text-brand-600 py-2 border-b border-gray-50 w-full">Terms of Service</button>
-        <button onclick="toggleMenu(); openModal('privacy-modal')" class="block text-left text-lg font-bold text-gray-800 hover:text-brand-600 py-2 border-b border-gray-50 w-full">Privacy Policy</button>
+        <a href="#how-it-works" onclick="toggleMenu()" class="block text-lg font-bold text-gray-800 hover:text-blue py-2 border-b border-gray-50">How it works</a>
+        <a href="#features" onclick="toggleMenu()" class="block text-lg font-bold text-gray-800 hover:text-blue py-2 border-b border-gray-50">Features</a>
+        <button onclick="toggleMenu(); openModal('terms-modal')" class="block text-left text-lg font-bold text-gray-800 hover:text-blue py-2 border-b border-gray-50 w-full">Terms of Service</button>
+        <button onclick="toggleMenu(); openModal('privacy-modal')" class="block text-left text-lg font-bold text-gray-800 hover:text-blue py-2 border-b border-gray-50 w-full">Privacy Policy</button>
       </div>
 
       <div class="p-5 bg-gray-50 border-t border-gray-100">
-        <a href="#download" onclick="toggleMenu()" class="block w-full text-center px-6 py-3 text-base font-bold text-white bg-brand-600 rounded-2xl shadow-lg hover:bg-brand-700 transition">
-          Download App Now
+        <a href="https://play.google.com/store/apps/details?id=in.rojsetu.taskapp"
+           target="_blank" rel="noopener"
+           id="playstore-mobile-link"
+           class="block w-full text-center px-6 py-3.5 text-base font-bold text-white bg-play rounded-full shadow-lg hover:bg-playDark transition">
+          Install on Google Play
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <header class="relative pt-16 pb-12 lg:pt-20 lg:pb-16 bg-hero overflow-hidden">
-    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-600/20 rounded-full blur-[80px] -z-10"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-500/10 rounded-full blur-[80px] -z-10"></div>
-
+  <header class="relative pt-24 pb-14 lg:pt-28 lg:pb-20 play-gradient overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        
-        <!-- Left Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
         <div class="text-center lg:text-left fade-up">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 mb-4 backdrop-blur-md">
-            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-            <span class="text-[10px] font-semibold text-white tracking-wide">Trusted Earning Platform</span>
+          <div class="play-badge mb-5 mx-auto lg:mx-0">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            Available on Google Play
           </div>
 
-          <!-- SEO Optimized H1 -->
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight mb-4 leading-[1.15]">
-            Complete Simple Tasks.<br />
-            <span class="text-brand-400">Earn Real Money.</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.05] mb-5">
+            Install Rozsetu.<br>
+            <span class="text-play">Start earning with simple tasks.</span>
           </h1>
 
-          <p class="text-sm sm:text-base text-slate-300 max-w-lg mx-auto lg:mx-0 mb-6 font-medium leading-relaxed">
-            Rozsetu is the best earning app for Android. Make money from home by completing simple daily tasks. Instant withdrawals and 24/7 support available.
+          <p class="text-base sm:text-lg text-sub max-w-xl mx-auto lg:mx-0 mb-7 leading-relaxed font-medium">
+            Discover a clean Android experience where users complete simple tasks, collect rewards, and get a smooth app flow designed for speed and trust.
           </p>
 
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+            <div class="play-chip">Free to install</div>
+            <div class="play-chip">Android app</div>
+            <div class="play-chip">Simple rewards flow</div>
+          </div>
+
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-            <!-- Download Button 1 (Hero) -->
-            <a id="apk-link-hero" href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
-              class="w-full sm:w-auto px-6 py-3 text-sm font-bold text-white bg-brand-600 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-              Download App
+            <a id="playstore-link-hero"
+               href="https://play.google.com/store/apps/details?id=in.rojsetu.taskapp"
+               target="_blank"
+               rel="noopener"
+               class="play-btn w-full sm:w-auto px-7 py-4 text-base">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 20.5V3.5c0-.41.47-.65.8-.4l10.1 7.4c.28.2.28.61 0 .81L3.8 20.9c-.33.24-.8.01-.8-.4Zm12.5-8.54 2.33-1.71c.25-.18.59-.18.84 0l2.85 2.09c.32.23.32.71 0 .94l-2.85 2.09c-.25.18-.59.18-.84 0l-2.33-1.71a.58.58 0 0 1 0-.7Z"/>
+              </svg>
+              Get it on Google Play
             </a>
+
             <a href="#how-it-works"
-              class="w-full sm:w-auto px-6 py-3 text-sm font-bold text-ink bg-white rounded-xl hover:bg-gray-100 transition shadow-sm border border-gray-200 flex items-center justify-center">
-              How it works
+               class="play-btn-secondary w-full sm:w-auto px-7 py-4 text-base">
+              Learn more
             </a>
+          </div>
+
+          <div class="mt-6 text-sm text-sub font-semibold">
+            Trusted app-style landing page • Clean install flow • Play Store first
           </div>
         </div>
 
-        <!-- Right: Phone Mockup -->
-        <div class="relative max-w-[280px] mx-auto lg:max-w-[320px] w-full fade-up delay-100 lg:ml-auto">
-          <div class="relative animate-float">
-            <div class="absolute -inset-4 bg-brand-500/20 rounded-[2.5rem] blur-2xl"></div>
-            <div class="relative bg-ink border-[6px] border-ink/80 rounded-[2rem] shadow-2xl overflow-hidden aspect-[9/19] bg-white">
-              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-5 bg-ink rounded-b-xl z-20"></div>
-              <div class="w-full h-full relative bg-slate-100">
-                <!-- User's Screenshot -->
-                <img 
-                  src="https://z-cdn-media.chatglm.cn/files/f08e28fa-3696-4969-9fdb-ecdf5a999a06.png?auth_key=1802008781-592b380a2a93469a804cbb02cec27d97-0-b78e5e59bee38f7c37fbe3d8a7f5be8c" 
-                  alt="Rozsetu App Screenshot" 
-                  class="w-full h-full object-cover"
-                />
+        <div class="relative max-w-[300px] mx-auto lg:max-w-[340px] w-full fade-up lg:ml-auto">
+          <div class="relative">
+            <div class="absolute -inset-6 bg-green-100 rounded-[40px] blur-3xl opacity-60"></div>
+            <div class="phone-shell relative">
+              <div class="phone-notch"></div>
+              <div class="w-full h-full bg-gray-100">
+                <img
+                  src="https://z-cdn-media.chatglm.cn/files/f08e28fa-3696-4969-9fdb-ecdf5a999a06.png?auth_key=1802008781-592b380a2a93469a804cbb02cec27d97-0-b78e5e59bee38f7c37fbe3d8a7f5be8c"
+                  alt="Rozsetu App Screenshot"
+                  class="w-full h-full object-cover">
               </div>
+            </div>
+
+            <div class="absolute -left-8 top-10 bg-white rounded-2xl shadow-card px-4 py-3 border border-line hidden md:block">
+              <div class="text-[11px] font-bold text-sub uppercase tracking-wide">Install source</div>
+              <div class="text-sm font-extrabold text-ink mt-1">Google Play</div>
+            </div>
+
+            <div class="absolute -right-8 bottom-10 bg-white rounded-2xl shadow-card px-4 py-3 border border-line hidden md:block">
+              <div class="text-[11px] font-bold text-sub uppercase tracking-wide">Experience</div>
+              <div class="text-sm font-extrabold text-ink mt-1">Fast & clean</div>
             </div>
           </div>
         </div>
@@ -286,145 +361,180 @@
   </header>
 
   <main>
-    <!-- HOW IT WORKS (SEO Content) -->
-    <section id="how-it-works" class="py-12 bg-white">
+    <section class="py-8 bg-white border-y border-line">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10 fade-up">
-          <h2 class="text-brand-600 font-extrabold tracking-wide uppercase text-[10px] mb-2">Simple Process</h2>
-          <h3 class="text-2xl md:text-3xl font-display font-extrabold text-ink mb-3">How to Earn Money Online</h3>
-          <p class="text-sub text-sm sm:text-base font-medium">Start earning in minutes with our simple 3-step process.</p>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="fade-up">
+            <div class="text-2xl sm:text-3xl font-extrabold text-ink">4.8</div>
+            <div class="text-xs sm:text-sm text-sub font-semibold">App-style rating</div>
+          </div>
+          <div class="fade-up">
+            <div class="text-2xl sm:text-3xl font-extrabold text-ink">Free</div>
+            <div class="text-xs sm:text-sm text-sub font-semibold">Install cost</div>
+          </div>
+          <div class="fade-up">
+            <div class="text-2xl sm:text-3xl font-extrabold text-ink">Android</div>
+            <div class="text-xs sm:text-sm text-sub font-semibold">Platform</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="py-14 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
+          <div class="text-play font-extrabold tracking-wide uppercase text-xs mb-2">How it works</div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">A simple install to rewards journey</h2>
+          <p class="text-sub text-base font-medium">Designed like a clean app listing page, with a smooth path from install to task completion.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <!-- Step 1 -->
-          <div class="p-5 bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-lg transition-all relative fade-up delay-100">
-            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 font-bold text-lg">1</div>
-            <h4 class="text-lg font-display font-bold text-ink mb-2">Choose a Task</h4>
-            <p class="text-sub font-medium text-sm leading-relaxed">
-              Browse our list of daily tasks like surveys, app installs, and referrals.
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-soft rounded-card border border-line shadow-card hover:shadow-hover transition fade-up">
+            <div class="w-12 h-12 bg-green-50 text-play rounded-2xl flex items-center justify-center mb-5 font-extrabold text-lg">1</div>
+            <h3 class="text-xl font-extrabold text-ink mb-2">Open Google Play</h3>
+            <p class="text-sub font-medium text-sm leading-6">
+              Install Rozsetu directly from Google Play for a cleaner and more trusted user flow.
             </p>
           </div>
 
-          <!-- Step 2 -->
-          <div class="p-5 bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-lg transition-all relative fade-up delay-200">
-            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 font-bold text-lg">2</div>
-            <h4 class="text-lg font-display font-bold text-ink mb-2">Complete Action</h4>
-            <p class="text-sub font-medium text-sm leading-relaxed">
-              Follow the instructions carefully. Most tasks take less than 5 minutes.
+          <div class="p-6 bg-soft rounded-card border border-line shadow-card hover:shadow-hover transition fade-up">
+            <div class="w-12 h-12 bg-blue-50 text-blue rounded-2xl flex items-center justify-center mb-5 font-extrabold text-lg">2</div>
+            <h3 class="text-xl font-extrabold text-ink mb-2">Complete simple tasks</h3>
+            <p class="text-sub font-medium text-sm leading-6">
+              Browse tasks, follow the required steps, and submit the needed details smoothly inside the app.
             </p>
           </div>
 
-          <!-- Step 3 -->
-          <div class="p-5 bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-lg transition-all relative fade-up delay-300">
-            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 font-bold text-lg">3</div>
-            <h4 class="text-lg font-display font-bold text-ink mb-2">Get Paid Instantly</h4>
-            <p class="text-sub font-medium text-sm leading-relaxed">
-              Once verified, your earnings are credited instantly. Withdraw to your bank/UPI.
+          <div class="p-6 bg-soft rounded-card border border-line shadow-card hover:shadow-hover transition fade-up">
+            <div class="w-12 h-12 bg-green-50 text-play rounded-2xl flex items-center justify-center mb-5 font-extrabold text-lg">3</div>
+            <h3 class="text-xl font-extrabold text-ink mb-2">Track rewards easily</h3>
+            <p class="text-sub font-medium text-sm leading-6">
+              Users get a simple experience for checking progress, reward history, and task completion flow.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section id="features" class="py-12 bg-soft border-t border-line">
+    <section id="features" class="py-14 bg-soft border-t border-line">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          
-          <!-- Feature List -->
-          <div class="order-2 lg:order-1 fade-up">
-            <div class="space-y-3">
-              <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
-                <div class="shrink-0 w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+          <div class="fade-up">
+            <div class="space-y-4">
+              <div class="bg-white p-5 rounded-card shadow-card border border-line flex gap-4">
+                <div class="shrink-0 w-11 h-11 bg-green-50 text-play rounded-2xl flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
                 </div>
                 <div>
-                  <h4 class="font-bold text-ink text-base">Instant Withdrawals</h4>
-                  <p class="text-xs font-semibold text-sub">Get paid directly to your account.</p>
-                </div>
-              </div>
-              
-              <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
-                <div class="shrink-0 w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                </div>
-                <div>
-                  <h4 class="font-bold text-ink text-base">100% Safe & Secure</h4>
-                  <p class="text-xs font-semibold text-sub">Trusted by thousands of users.</p>
+                  <h3 class="font-extrabold text-ink text-lg">Play Store focused install flow</h3>
+                  <p class="text-sm font-medium text-sub mt-1">No APK button. Only a cleaner Google Play install experience.</p>
                 </div>
               </div>
 
-              <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
-                <div class="shrink-0 w-10 h-10 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+              <div class="bg-white p-5 rounded-card shadow-card border border-line flex gap-4">
+                <div class="shrink-0 w-11 h-11 bg-blue-50 text-blue rounded-2xl flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
                 </div>
                 <div>
-                  <h4 class="font-bold text-ink text-base">24/7 Customer Support</h4>
-                  <p class="text-xs font-semibold text-sub">We are here to help you earn.</p>
+                  <h3 class="font-extrabold text-ink text-lg">Fast-looking modern UI</h3>
+                  <p class="text-sm font-medium text-sub mt-1">A more premium landing page style inspired by trusted app listing patterns.</p>
+                </div>
+              </div>
+
+              <div class="bg-white p-5 rounded-card shadow-card border border-line flex gap-4">
+                <div class="shrink-0 w-11 h-11 bg-green-50 text-play rounded-2xl flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.866-3.582 7-8 7 4.418 0 8 3.134 8 7 0-3.866 3.582-7 8-7-4.418 0-8-3.134-8-7z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-ink text-lg">Better trust presentation</h3>
+                  <p class="text-sm font-medium text-sub mt-1">Highlights a cleaner platform feel with a direct path to the official app page.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Text -->
-          <div class="order-1 lg:order-2 fade-up delay-100">
-            <h3 class="text-2xl md:text-3xl font-display font-extrabold text-ink mb-4">Why Choose Rozsetu?</h3>
-            <p class="text-sub text-sm sm:text-base font-medium leading-relaxed mb-4">
-              Rozsetu is the ultimate task-to-earn platform designed for everyone. Whether you are a student, homemaker, or working professional, you can earn extra income in your free time.
+          <div class="fade-up">
+            <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-green-50 text-play font-bold text-xs mb-4 border border-green-100">
+              Why choose Rozsetu
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-ink mb-4">A cleaner landing page built to feel like Google Play</h2>
+            <p class="text-sub text-base font-medium leading-7 mb-5">
+              This version removes APK download links completely and guides users only to the Play Store listing. That keeps the page simpler, cleaner, and closer to the install experience users already trust.
             </p>
-            <ul class="space-y-2 mb-6">
-              <li class="flex items-center gap-2 text-ink font-semibold text-sm">
-                <span class="w-4 h-4 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-[10px]">✓</span>
-                Daily Payouts
+            <ul class="space-y-3 mb-7">
+              <li class="flex items-center gap-3 text-ink font-semibold text-sm">
+                <span class="w-5 h-5 rounded-full bg-green-100 text-play flex items-center justify-center text-[11px]">✓</span>
+                Only Play Store install links
               </li>
-              <li class="flex items-center gap-2 text-ink font-semibold text-sm">
-                <span class="w-4 h-4 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-[10px]">✓</span>
-                No Hidden Fees
+              <li class="flex items-center gap-3 text-ink font-semibold text-sm">
+                <span class="w-5 h-5 rounded-full bg-green-100 text-play flex items-center justify-center text-[11px]">✓</span>
+                Cleaner and more trusted presentation
               </li>
-              <li class="flex items-center gap-2 text-ink font-semibold text-sm">
-                <span class="w-4 h-4 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-[10px]">✓</span>
-                Verified Tasks Only
+              <li class="flex items-center gap-3 text-ink font-semibold text-sm">
+                <span class="w-5 h-5 rounded-full bg-green-100 text-play flex items-center justify-center text-[11px]">✓</span>
+                Better install-first CTA flow
               </li>
             </ul>
+
+            <a id="playstore-feature-link"
+               href="https://play.google.com/store/apps/details?id=in.rojsetu.taskapp"
+               target="_blank"
+               rel="noopener"
+               class="play-btn px-7 py-4 text-base">
+              Install from Google Play
+            </a>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- DOWNLOAD CTA -->
     <section id="download" class="py-16 bg-white relative overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
-        <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-ink mb-4 tracking-tight">
-          Start Earning Today
+        <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-50 text-blue font-bold text-xs mb-4 border border-blue-100">
+          Ready to install
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink mb-4 tracking-tight">
+          Get Rozsetu on Google Play
         </h2>
-        <p class="text-base text-sub mb-6 max-w-lg mx-auto font-medium">
-          Join the best earning community. Download Rozsetu and turn your free time into real money.
+        <p class="text-base text-sub mb-7 max-w-xl mx-auto font-medium leading-7">
+          Open the Play Store listing and continue with the official install flow.
         </p>
 
-        <!-- Download Button 2 (Footer) -->
-        <a id="apk-link-cta" href="https://github.com/himanshusharma817303-wq/rozsetu/releases/download/Rozsetu/app-release.apk" target="_blank" rel="noopener"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white bg-ink rounded-2xl hover:bg-dark-900 transition shadow-xl transform hover:-translate-y-1 w-full sm:w-auto">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          Download Rozsetu App
+        <a id="playstore-link-cta"
+           href="https://play.google.com/store/apps/details?id=in.rojsetu.taskapp"
+           target="_blank"
+           rel="noopener"
+           class="inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-play rounded-full hover:bg-playDark transition shadow-xl w-full sm:w-auto">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 20.5V3.5c0-.41.47-.65.8-.4l10.1 7.4c.28.2.28.61 0 .81L3.8 20.9c-.33.24-.8.01-.8-.4Zm12.5-8.54 2.33-1.71c.25-.18.59-.18.84 0l2.85 2.09c.32.23.32.71 0 .94l-2.85 2.09c-.25.18-.59.18-.84 0l-2.33-1.71a.58.58 0 0 1 0-.7Z"/>
+          </svg>
+          Get it on Google Play
         </a>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-50 border-t border-line py-8">
+  <footer class="bg-soft border-t border-line py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded-lg overflow-hidden bg-white border border-gray-200">
-          <img id="footer-logo" src="" class="w-full h-full object-cover"/>
+        <div class="w-7 h-7 rounded-xl overflow-hidden bg-white border border-gray-200">
+          <img id="footer-logo" src="" class="w-full h-full object-cover" alt="Rozsetu Logo">
         </div>
-        <span class="font-display font-bold text-ink text-sm">Rozsetu</span>
+        <span class="font-bold text-ink text-sm">Rozsetu</span>
       </div>
 
       <div class="flex gap-4 text-xs font-semibold text-sub">
-        <button onclick="openModal('privacy-modal')" class="hover:text-brand-600 transition cursor-pointer">Privacy Policy</button>
-        <button onclick="openModal('terms-modal')" class="hover:text-brand-600 transition cursor-pointer">Terms & Conditions</button>
-        <a href="#download" class="hover:text-brand-600 transition">Support</a>
+        <button onclick="openModal('privacy-modal')" class="hover:text-blue transition">Privacy Policy</button>
+        <button onclick="openModal('terms-modal')" class="hover:text-blue transition">Terms & Conditions</button>
+        <a href="#download" class="hover:text-blue transition">Install</a>
       </div>
 
       <div class="text-[10px] font-bold text-gray-400">
@@ -433,16 +543,15 @@
     </div>
   </footer>
 
-  <!-- ================= MODALS (Pop-ups) ================= -->
-
-  <!-- Privacy Policy Modal -->
   <div id="privacy-modal" class="fixed inset-0 z-[100] hidden">
     <div class="absolute inset-0 modal-backdrop" onclick="closeModal('privacy-modal')"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 max-w-lg rounded-2xl shadow-2xl max-h-[80vh] flex flex-col">
-      <div class="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white rounded-t-2xl z-10">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 max-w-lg rounded-3xl shadow-2xl max-h-[80vh] flex flex-col">
+      <div class="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white rounded-t-3xl z-10">
         <h3 class="text-xl font-bold text-ink">Privacy Policy</h3>
         <button onclick="closeModal('privacy-modal')" class="text-gray-500 hover:text-red-500">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
         </button>
       </div>
       <div class="p-6 overflow-y-auto text-sm text-gray-600 leading-relaxed">
@@ -451,41 +560,40 @@
         <h4 class="font-bold text-ink mt-4 mb-2">1. Data Collection</h4>
         <p class="mb-4">We collect information such as your device ID, IP address, and usage statistics to improve app performance and prevent fraud.</p>
         <h4 class="font-bold text-ink mt-4 mb-2">2. Data Usage</h4>
-        <p class="mb-4">Your data is used to verify task completions, process payments, and provide customer support. We do not sell your personal data to third parties.</p>
+        <p class="mb-4">Your data is used to improve experience, support users, and maintain app reliability. We do not sell your personal data to third parties.</p>
         <h4 class="font-bold text-ink mt-4 mb-2">3. Security</h4>
-        <p>We use industry-standard encryption to protect your information.</p>
+        <p>We use industry-standard methods to protect your information.</p>
       </div>
     </div>
   </div>
 
-  <!-- Terms & Conditions Modal -->
   <div id="terms-modal" class="fixed inset-0 z-[100] hidden">
     <div class="absolute inset-0 modal-backdrop" onclick="closeModal('terms-modal')"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 max-w-lg rounded-2xl shadow-2xl max-h-[80vh] flex flex-col">
-      <div class="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white rounded-t-2xl z-10">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 max-w-lg rounded-3xl shadow-2xl max-h-[80vh] flex flex-col">
+      <div class="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white rounded-t-3xl z-10">
         <h3 class="text-xl font-bold text-ink">Terms & Conditions</h3>
         <button onclick="closeModal('terms-modal')" class="text-gray-500 hover:text-red-500">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
         </button>
       </div>
       <div class="p-6 overflow-y-auto text-sm text-gray-600 leading-relaxed">
         <p class="mb-4"><strong>Last Updated: October 2023</strong></p>
         <p class="mb-2">By downloading and using Rozsetu, you agree to these terms.</p>
         <h4 class="font-bold text-ink mt-4 mb-2">1. Eligibility</h4>
-        <p class="mb-4">You must be at least 18 years old to use this app and earn rewards.</p>
-        <h4 class="font-bold text-ink mt-4 mb-2">2. Rewards</h4>
-        <p class="mb-4">Rewards are granted only upon successful completion and verification of tasks. Fraudulent activity will lead to account termination.</p>
+        <p class="mb-4">You must comply with the app requirements and local laws applicable to your usage.</p>
+        <h4 class="font-bold text-ink mt-4 mb-2">2. App Usage</h4>
+        <p class="mb-4">Users should follow all task instructions properly. Misuse, fraud, or abuse may lead to restrictions.</p>
         <h4 class="font-bold text-ink mt-4 mb-2">3. Liability</h4>
-        <p>Rozsetu is not liable for any technical issues or third-party service outages that may affect task availability.</p>
+        <p>Rozsetu is not liable for outages caused by third-party services or connectivity issues outside its control.</p>
       </div>
     </div>
   </div>
 
-  <!-- JAVASCRIPT & GOOGLE ADS EVENT TRACKING -->
   <script>
     const LOGO_URL = window.ROZSETU_LOGO_URL;
-    
-    // Inject Logos
+
     function injectLogos() {
       ["nav-logo", "mobile-nav-logo", "footer-logo"].forEach((id) => {
         const el = document.getElementById(id);
@@ -493,25 +601,21 @@
       });
     }
 
-    // --- GOOGLE ADS CONVERSION TRACKING FUNCTION ---
-    // This function fires the conversion event when called
     function trackConversion() {
       gtag('event', 'conversion', {'send_to': 'AW-17937912851/NkVPCPuttPQbEJOou-lC'});
-      console.log("Conversion tracked"); // For debugging
+      console.log("Conversion tracked");
     }
 
-    // --- MODAL FUNCTIONS ---
     function openModal(id) {
       document.getElementById(id).classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
     }
 
     function closeModal(id) {
       document.getElementById(id).classList.add('hidden');
-      document.body.style.overflow = ''; // Restore scrolling
+      document.body.style.overflow = '';
     }
 
-    // --- MOBILE MENU FUNCTIONS (Glitch Fix) ---
     const btn = document.getElementById('mobile-menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -520,48 +624,37 @@
     function toggleMenu() {
       const isClosed = menu.classList.contains('translate-x-full');
       if (isClosed) {
-        menu.classList.remove('translate-x-full'); // Slide In
-        body.style.overflow = 'hidden'; // Lock Scroll
+        menu.classList.remove('translate-x-full');
+        body.style.overflow = 'hidden';
       } else {
-        menu.classList.add('translate-x-full'); // Slide Out
-        body.style.overflow = ''; // Unlock Scroll
+        menu.classList.add('translate-x-full');
+        body.style.overflow = '';
       }
     }
 
-    if(btn) btn.addEventListener('click', toggleMenu);
-    if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+    if (btn) btn.addEventListener('click', toggleMenu);
+    if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking links (except modals)
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('translate-x-full');
-        body.style.overflow = '';
-      });
-    });
-
-    // --- ANIMATION OBSERVER & BUTTON TRACKING SETUP ---
     document.addEventListener('DOMContentLoaded', () => {
       injectLogos();
 
-      // 1. Attach Conversion Tracking to Download Buttons
-      const downloadBtnHero = document.getElementById('apk-link-hero');
-      const downloadBtnCta = document.getElementById('apk-link-cta');
+      [
+        'playstore-link-hero',
+        'playstore-link-cta',
+        'playstore-nav-link',
+        'playstore-mobile-link',
+        'playstore-feature-link'
+      ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('click', trackConversion);
+      });
 
-      if(downloadBtnHero) {
-        downloadBtnHero.addEventListener('click', trackConversion);
-      }
-      if(downloadBtnCta) {
-        downloadBtnCta.addEventListener('click', trackConversion);
-      }
-
-      // 2. Scroll Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       }, { threshold: 0.1 });
+
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     });
   </script>
