@@ -47,21 +47,32 @@
     const eventId = params.get("e");
     const token = params.get("t");
 
-    const playStoreUrl = "https://play.google.com/store/apps/details?id=in.rojsetu.taskapp";
     const packageName = "in.rojsetu.taskapp";
+    const playStoreApp = `market://details?id=${packageName}`;
+    const playStoreWeb = `https://play.google.com/store/apps/details?id=${packageName}`;
 
     if (!eventId || !token) {
-      window.location.href = playStoreUrl;
-    } else {
-      const encodedPlayStore = encodeURIComponent(playStoreUrl);
-      const intentUrl =
-        `intent://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}` +
-        `#Intent;scheme=rozsetu;package=${packageName};S.browser_fallback_url=${encodedPlayStore};end`;
-
-      window.location.href = intentUrl;
+      window.location.href = playStoreApp;
 
       setTimeout(() => {
-        window.location.href = playStoreUrl;
+        window.location.href = playStoreWeb;
+      }, 1200);
+    } else {
+      const intentUrl =
+        `intent://lifafa?e=${encodeURIComponent(eventId)}&t=${encodeURIComponent(token)}` +
+        `#Intent;scheme=rozsetu;package=${packageName};end`;
+
+      // App open try
+      window.location.href = intentUrl;
+
+      // App nahi hui toh Play Store app
+      setTimeout(() => {
+        window.location.href = playStoreApp;
+
+        // Agar market:// bhi fail ho toh web Play Store
+        setTimeout(() => {
+          window.location.href = playStoreWeb;
+        }, 1200);
       }, 1800);
     }
   </script>
